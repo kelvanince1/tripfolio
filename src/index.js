@@ -15,8 +15,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={Home}/>
-      <Route path='profile' component={Profile}/>
-      <Route path='planner' component={TripPlanningPage}/>
+      <Route path='/profile' component={Profile}/>
+      <Route path='/planner' component={TripPlanningPage}/>
     </Route>
   </Router>,
   document.getElementById('root')

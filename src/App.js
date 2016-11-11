@@ -56,7 +56,7 @@ _sessionButton() {
         <header className="container-fluid">
           <div className="row">
             <div id="logo">
-              LOGO
+              <IndexLink to="/">LOGO</IndexLink>
             </div>
             <div id="login">
               {this._sessionButton()}

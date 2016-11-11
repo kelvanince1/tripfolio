@@ -5,9 +5,9 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 // Components
 import App from './App';
-import Home from './Home';
-import Profile from './Profile';
-import TripPlanningPage from './TripPlanningPage';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import TripPlanningPage from './components/TripPlanningPage';
 
 import './index.css';
 
@@ -18,7 +18,6 @@ ReactDOM.render(
       <Route path='profile' component={Profile}/>
       <Route path='planner' component={TripPlanningPage}/>
     </Route>
-    <Route path='*' component={NotFound}/>
   </Router>,
   document.getElementById('root')
 );

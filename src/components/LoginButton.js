@@ -15,6 +15,6 @@ _handleClick(e){
 }
 
   render(){
-    return(<button onClick={this._handleClick} className="button">{this.props.children}</button>)
+    return(<button onClick={this._handleClick} className="btn btn-default">{this.props.children}</button>)
   }
 }

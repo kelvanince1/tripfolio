@@ -1,10 +1,16 @@
+// Modules
 import React, { Component } from 'react';
-import './App.css';
 import firebase from './utils/firebase';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
 import _ from 'lodash';
 import { Link, IndexLink } from 'react-router';
+
+// Components
+import Home from './components/Home';
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
+
+// Styles and images
+import './App.css';
 
 
 class App extends Component {
@@ -14,6 +20,8 @@ class App extends Component {
     this.state = {
       user: {}
     }
+
+    this._sessionButton = this._sessionButton.bind(this);
   }
 
 
@@ -44,15 +52,18 @@ _sessionButton() {
 
   render(){
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>myTrip</h1>
-        </div>
-          <h2>Welcome {this.state.user.displayName}</h2>
-        <div className="login">
-
-          {this._sessionButton()}
-        </div>
+      <div>
+        <header className="container-fluid">
+          <div className="row">
+            <div id="logo">
+              LOGO
+            </div>
+            <div id="login">
+              {this._sessionButton()}
+            </div>
+          </div>
+        </header>
+        {this.props.children}
       </div>
     );
   }

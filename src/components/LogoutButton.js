@@ -11,10 +11,21 @@ _handleLogout(e){
   e.preventDefault()
   let provider = new
   this.props.firebase.auth.GoogleAuthProvider();
-  this.props.firebase.auth().signOut()
+  this.props.firebase.auth().signOut();
 }
 
   render(){
-    return(<button onClick={this._handleLogout} className="btn btn-default">{this.props.children}</button>)
+    return(
+      <div className="dropdown">
+        <div className="dropdown-toggle" data-toggle="dropdown">
+          <img className="profilePicture" src="#" alt="" />
+          <p className="username">clrksanford</p>
+        </div>
+        <ul className="dropdown-menu">
+          <li><a href="#" onClick={this._handleLogout}>Logout</a></li>
+          <li><a id="showProfile" href="#">My Profile</a></li>
+        </ul>
+      </div>
+    )
   }
 }

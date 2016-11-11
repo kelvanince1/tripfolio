@@ -46,6 +46,16 @@ header div {
   right: 3%;
 }
 
+.dropdown {
+  cursor: pointer;
+  margin-right: 60px;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+}
+
 main {
 	position: absolute;
 	top: 15%;

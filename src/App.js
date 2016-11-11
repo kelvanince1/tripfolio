@@ -45,7 +45,6 @@ _sessionButton() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1>myTrip</h1>
         </div>
           <h2>Welcome {this.state.user.displayName}</h2>

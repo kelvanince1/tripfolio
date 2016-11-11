@@ -1,0 +1,27 @@
+Failed attempt to add dropdown menu to home page
+
+  Bootstrap links from index.html
+
+    <link rel="stylesheet" href="./bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+
+  JS links from index.html
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="./bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
+  JSX from LogoutButton component
+
+    <div className="dropdown">
+      <div className="dropdown-toggle" data-toggle="dropdown">
+        <img className="profilePicture" src="#" alt="" />
+        <p className="username">clrksanford</p>
+      </div>
+      <ul className="dropdown-menu">
+        <li><a href="#" onClick={this._handleLogout}>Logout</a></li>
+        <li><Link to="/profile">My Profile</Link></li>
+        <li><a href="#">Filler Li</a></li>
+      </ul>
+    </div>

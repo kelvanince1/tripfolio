@@ -1,4 +1,9 @@
+// Modules
 import React, {Component} from 'react';
+
+// Components
+
+// Styles and Images
 
 class SuggestionBox extends Component {
   render() {

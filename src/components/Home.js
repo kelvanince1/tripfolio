@@ -1,11 +1,16 @@
+// Modules
 import React, {Component} from 'react';
+
+// Components
+
+// Styles and images
 
 class Home extends Component {
   render() {
     return(
       <main>
         <h1>Travel Planner</h1>
-        <p><a href="#">Sign up</a> or <a href="#">Login</a> to begin!</p>
+        <p>Login to begin!</p>
       </main>
     );
   }

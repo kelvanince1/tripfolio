@@ -1,4 +1,9 @@
+// Modules
 import React, {Component} from 'react';
+
+// Components
+
+// Styles and images
 
 class Profile extends Component {
   render() {

@@ -1,5 +1,10 @@
+// Modules
 import React, {Component} from 'react';
+
+// Components
 import SuggestionBox from './SuggestionBox';
+
+// Styles and images
 
 class TravelPlanningPage extends Component {
   render() {

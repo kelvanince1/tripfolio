@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import firebase from './utils/firebase';
 
 // Components
 import App from './App';
@@ -14,7 +15,7 @@ import './index.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path='/' component={App}>
+    <Route path='/' component={App} firebase={firebase}>
       <IndexRoute component={Home}/>
       <Route path='/profile' component={Profile}/>
       <Route path='/planner' component={TripPlanningPage}/>

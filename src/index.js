@@ -8,6 +8,7 @@ import App from './App';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
+import NewTripModal from './components/NewTripModal';
 
 import './index.css';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <IndexRoute component={Home}/>
       <Route path='/profile' component={Profile}/>
       <Route path='/planner' component={TripPlanningPage}/>
+      <Route path='/newTrip' component={NewTripModal}/>
     </Route>
   </Router>,
   document.getElementById('root')

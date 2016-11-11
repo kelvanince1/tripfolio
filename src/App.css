@@ -70,3 +70,7 @@ h1 {
   font-size: 80px;
   color: white;
 }
+
+ul {
+  list-style-type: none;
+}

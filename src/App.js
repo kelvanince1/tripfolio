@@ -4,6 +4,7 @@ import firebase from './utils/firebase';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import _ from 'lodash';
+import { Link, IndexLink } from 'react-router';
 
 
 class App extends Component {

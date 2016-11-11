@@ -15,6 +15,6 @@ _handleLogout(e){
 }
 
   render(){
-    return(<button onClick={this._handleLogout} className="button">{this.props.children}</button>)
+    return(<button onClick={this._handleLogout} className="btn btn-default">{this.props.children}</button>)
   }
 }

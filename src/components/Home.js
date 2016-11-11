@@ -8,9 +8,11 @@ import React, {Component} from 'react';
 class Home extends Component {
   render() {
     return(
-      <main>
-        <h1>Travel Planner</h1>
-        <p>Login to begin!</p>
+      <main className="container-fluid">
+        <div className="continer-inner">
+          <h1>Travel Planner</h1>
+          <p>Login to begin!</p>
+        </div>
       </main>
     );
   }

@@ -53,9 +53,15 @@ _sessionButton() {
   render(){
     return (
       <div>
-        <header>
-          LOGO
-          {this._sessionButton()}
+        <header className="container-fluid">
+          <div className="row">
+            <div id="logo">
+              LOGO
+            </div>
+            <div id="login">
+              {this._sessionButton()}
+            </div>
+          </div>
         </header>
         {this.props.children}
       </div>

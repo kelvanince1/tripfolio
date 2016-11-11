@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SuggestionBox from './SuggestionBox';
 
 class TravelPlanningPage extends Component {
   render() {
@@ -11,16 +12,7 @@ class TravelPlanningPage extends Component {
           <a href="#">Attractions</a>
           <a href="#">Hotels</a>
         </nav>
-        <div id="suggestionContainer">
-          <div className="suggestionTile">
-            <h4>Random Restaurant</h4>
-            <p>API info will populate here</p>
-          </div>
-          <div className="suggestionTile">
-            <h4>Random Restaurant 2</h4>
-            <p>API info will populate here</p>
-          </div>
-        </div>
+        <SuggestionBox />
         <div id="myTiles">
 
         </div>

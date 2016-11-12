@@ -21,9 +21,10 @@ class Profile extends Component {
           </div>
           <div className="col-md-6">
             <div id="myTrips">
+              <h2>My Trips</h2>
               <ul>
-                <li><a href="#">Name of destination</a></li>
-                <li><a href="#">My trip to Madrid</a></li>
+                <li><Link to="/planner">Name of destination</Link></li>
+                <li><Link to="/planner">My trip to Madrid</Link></li>
               </ul>
             </div>
           </div> {/* Close col-md-6 div */}

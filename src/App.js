@@ -20,6 +20,7 @@ class App extends Component {
     }
 
     this._sessionButton = this._sessionButton.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
 
@@ -49,12 +50,18 @@ _sessionButton() {
     }
   }
 
+  _handleSubmit(destination) {
+    this.setState({ destination });
+  }
+
   render(){
     let children = null;
     if(this.props.children){
       children = React.cloneElement(this.props.children, {
         firebase: this.props.route.firebase,
-        user: this.state.user
+        user: this.state.user,
+        destination: this.state.destination,
+        _handleSubmit: this._handleSubmit
       })
     }
 

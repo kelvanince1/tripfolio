@@ -28,6 +28,7 @@ class App extends Component {
       if (user) {
         this.setState({ user })
         // User is signed in.
+        console.log(user);
       } else {
         this.setState({user: {} })
         // No user is signed in.
@@ -52,7 +53,8 @@ _sessionButton() {
     let children = null;
     if(this.props.children){
       children = React.cloneElement(this.props.children, {
-        firebase: this.props.firebase
+        firebase: this.props.route.firebase,
+        user: this.state.user
       })
     }
 
@@ -68,7 +70,7 @@ _sessionButton() {
             </div>
           </div>
         </header>
-        {this.props.children}
+        {children}
       </div>
     );
   }

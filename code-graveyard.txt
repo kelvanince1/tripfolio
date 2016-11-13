@@ -25,3 +25,45 @@ Failed attempt to add dropdown menu to home page
         <li><a href="#">Filler Li</a></li>
       </ul>
     </div>
+
+Failed attempt to change IndexRoute
+
+class RouteMap extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {}
+    }
+
+    this._determineIndexRoute = this._determineIndexRoute.bind(this);
+  }
+
+  _determineIndexRoute() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user })
+        // User is signed in.
+        return <IndexRoute component={Profile} />;
+      } else {
+        this.setState({user: {} })
+        // No user is signed in.
+        return <IndexRoute component={Home} />;
+      }
+    });
+  }
+
+
+  render() {
+    return(
+      <Router history={hashHistory}>
+        <Route path='/' component={App} firebase={firebase}>
+          {this._determineIndexRoute()}
+          <Route path='/profile' component={Profile}/>
+          <Route path='/planner' component={TripPlanningPage}/>
+          <Route path='/newTrip' component={NewTripModal}/>
+        </Route>
+      </Router>
+    );
+  }
+}

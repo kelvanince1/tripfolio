@@ -10,7 +10,7 @@ class TravelPlanningPage extends Component {
   render() {
     return(
       <main>
-        <h2>My trip to <span id="destinationName">NAME HERE</span></h2>
+        <h2>My trip to <span id="destinationName">{this.props.destination}</span></h2>
         <nav>
           <h3>Suggestions</h3>
           <a href="#">Food</a>

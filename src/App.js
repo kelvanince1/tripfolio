@@ -20,6 +20,7 @@ class App extends Component {
     }
 
     this._sessionButton = this._sessionButton.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
 
@@ -28,6 +29,7 @@ class App extends Component {
       if (user) {
         this.setState({ user })
         // User is signed in.
+
       } else {
         this.setState({user: {} })
         // No user is signed in.
@@ -48,11 +50,18 @@ _sessionButton() {
     }
   }
 
+  _handleSubmit(destination) {
+    this.setState({ destination });
+  }
+
   render(){
     let children = null;
     if(this.props.children){
       children = React.cloneElement(this.props.children, {
-        firebase: this.props.firebase
+        firebase: this.props.route.firebase,
+        user: this.state.user,
+        destination: this.state.destination,
+        _handleSubmit: this._handleSubmit
       })
     }
 
@@ -68,7 +77,7 @@ _sessionButton() {
             </div>
           </div>
         </header>
-        {this.props.children}
+        {children}
       </div>
     );
   }

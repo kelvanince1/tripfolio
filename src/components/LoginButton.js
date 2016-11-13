@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 
 export default class LoginButton extends Component{
@@ -11,10 +12,18 @@ _handleClick(e){
   e.preventDefault()
   let provider = new
   this.props.firebase.auth.GoogleAuthProvider();
-  this.props.firebase.auth().signInWithPopup(provider)
+  this.props.firebase.auth().signInWithPopup(provider);
+  this.props.history.pushState(null, './profile');
+
 }
 
   render(){
-    return(<button onClick={this._handleClick} className="btn btn-default">{this.props.children}</button>)
+    return(
+      <div>
+        <button onClick={this._handleClick} className="btn btn-default">
+        <Link to="profile">{this.props.children}</Link></button>
+
+      </div>
+    )
   }
 }

@@ -36,8 +36,8 @@ var required_parameters = {
 });
 
 
-  client.business("grand-place-bruxelles-2", {
-    cc: "US"
-  }).then(function (data) {
-    // ...
-  });
+  // client.business("grand-place-bruxelles-2", {
+  //   cc: "US"
+  // }).then(function (data) {
+  //   // ...
+  // });

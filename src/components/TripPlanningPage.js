@@ -1,5 +1,6 @@
 // Modules
 import React, {Component} from 'react';
+import axios from 'axios';
 
 // Components
 import SuggestionBox from './SuggestionBox';
@@ -7,6 +8,15 @@ import SuggestionBox from './SuggestionBox';
 // Styles and images
 
 class TravelPlanningPage extends Component {
+  componentDidMount() {
+    let destination = this.props.destination;
+    console.log(destination);
+    axios.get(`https://thawing-cliffs-39852.herokuapp.com/${destination}`)
+      .then(function(response) {
+        console.log(response);
+      });
+  }
+
   render() {
     return(
       <main>

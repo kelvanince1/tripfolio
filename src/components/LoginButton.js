@@ -13,7 +13,6 @@ _handleClick(e){
   let provider = new
   this.props.firebase.auth.GoogleAuthProvider();
   this.props.firebase.auth().signInWithPopup(provider);
-  this.props.history.pushState(null, './profile');
 
 }
 

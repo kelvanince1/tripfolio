@@ -1,7 +1,7 @@
 // Modules
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { Link, IndexLink } from 'react-router';
+import { Link, IndexLink, hashHistory } from 'react-router';
 
 // Components
 import Home from './components/Home';
@@ -25,16 +25,15 @@ class App extends Component {
 
 
   componentDidMount(){
-
     this.props.route.firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user)
         this.setState({ user })
         // User is signed in.
-
+        hashHistory.push('/profile');
       } else {
         this.setState({user: {} })
         // No user is signed in.
+        hashHistory.pop();
       }
     });
   }

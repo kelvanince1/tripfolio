@@ -1,12 +1,7 @@
-html, body {
-  height: 100%;
-}
-
 body {
   text-align: center;
   color: white;
   background-image: url("../public/images/travel.jpeg");
-  background-position: center;
   background-size: cover;
 }
 
@@ -36,14 +31,50 @@ header div {
   display: inline-block;
 }
 
+#row{
+  display: inline-block;
+}
+
+.profile{
+  /*position: absolute;*/
+	top: 15%;
+	left: 0;
+  height: 85%;
+  width: 100%;
+	z-index: 1;
+  padding-top: 12%;
+}
+
+.trips{
+  float:left;
+	top: 15%;
+	left: 0;
+  height: 85%;
+  width: 100%;
+	z-index: 1;
+  padding-top: 12%;
+}
+
+
 #logo {
   position: absolute;
   left: 3%;
 }
 
-#login {
+#main{
+  margin: 200px auto;
+  text-align: center;
+}
+
+#logout{
+  display: inline;
+  align: right;
+  margin-top: 1px;
+  margin-right: 2px;
   position: absolute;
-  right: 3%;
+  top: 0;
+  right: 10px;
+  float: right;
 }
 
 .dropdown {
@@ -57,13 +88,7 @@ header div {
 }
 
 main {
-	position: absolute;
-	top: 15%;
-	left: 0;
-  height: 85%;
-  width: 100%;
-	z-index: 1;
-  padding-top: 12%;
+
 }
 
 h1 {

@@ -3,15 +3,18 @@ import React, {Component} from 'react';
 import { Link } from 'react-router';
 
 // Components
-
+import LogoutButton from './LogoutButton';
 // Styles and images
 
 class Profile extends Component {
   render() {
     return(
       <main className="container">
+        <div id="logout">
+          <LogoutButton firebase={this.props.route.firebase}>Logout</LogoutButton>
+        </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="profile">
             <div id="profileInfo">
               <img src={this.props.user.providerData[0].photoURL} alt="Profile Picture" />
               <h3>{this.props.user.providerData[0].displayName}</h3>
@@ -19,7 +22,7 @@ class Profile extends Component {
             </div>
             <Link to="/newTrip">New Trip</Link>
           </div>
-          <div className="col-md-6">
+          <div className="trips">
             <div id="myTrips">
               <h2>My Trips</h2>
               <ul>

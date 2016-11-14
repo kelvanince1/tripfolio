@@ -21,7 +21,6 @@ _handleClick(e){
       <div>
         <button onClick={this._handleClick} className="btn btn-default">
         <Link to="profile">{this.props.children}</Link></button>
-
       </div>
     )
   }

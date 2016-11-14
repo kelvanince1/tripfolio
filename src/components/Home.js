@@ -5,15 +5,17 @@ import React, {Component} from 'react';
 
 // Styles and images
 
+import LoginButton from './LoginButton';
+
 class Home extends Component {
   render() {
     return(
-      <main className="container-fluid">
-        <div className="continer-inner">
-          <h1>Travel Planner</h1>
-          <p>Login to begin!</p>
-        </div>
-      </main>
+      <main id="main" className="container-fluid">
+       <div className="continer-inner">
+         <h1>Travel Planner</h1>
+         <LoginButton firebase={this.props.firebase}>Login</LoginButton>
+       </div>
+     </main>
     );
   }
 }

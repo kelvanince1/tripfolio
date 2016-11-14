@@ -19,7 +19,7 @@ class App extends Component {
       user: {}
     }
 
-    this._sessionButton = this._sessionButton.bind(this);
+    this._sessionButton.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
@@ -33,11 +33,9 @@ class App extends Component {
       } else {
         this.setState({user: {} })
         // No user is signed in.
-        hashHistory.pop();
       }
     });
   }
-
 
 _sessionButton() {
     if (_.isEmpty(this.state.user)) {
@@ -66,20 +64,10 @@ _sessionButton() {
       })
     }
 
-    return (
-      <div>
-        <header className="container-fluid">
-          <div className="row">
-            <div id="logo">
-              <IndexLink to="/">LOGO</IndexLink>
-            </div>
-            <div id="login">
-              {this._sessionButton()}
-            </div>
-          </div>
-        </header>
-        {children}
-      </div>
+  return (
+    <div>
+     {children}
+    </div>
     );
   }
 }

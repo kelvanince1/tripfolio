@@ -26,9 +26,13 @@ class NewTripModal extends Component {
     hashHistory.push('/planner');
 
     // The .child string will be altered when a variable is defined for the new data which will be added to a users new trip.
-    var newTrip = firebase.database().ref().child(this.props.destination).push().key;
+    var newTrip = this.refs.destination;
+    firebase.database().ref().child(this.props.destination).push().key.then(() => {
+      this.refs.destination.value = "";
+      this.refs.destination.focus();
+    })
 
-    // Pass the data up the chain to paren't state
+    // Pass the data up the chain to parent state
     this.props._handleSubmit(destination);
   }
 

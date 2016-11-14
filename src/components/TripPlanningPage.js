@@ -18,7 +18,9 @@ class TravelPlanningPage extends Component {
 
   componentDidMount() {
     let destination = this.props.destination;
-    let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}`;
+
+    // By default, load results for tourist attractions
+    let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}/tourist%20attractions`;
 
     axios.get(link)
       .then((response) => {

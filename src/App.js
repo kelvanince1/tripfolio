@@ -16,37 +16,46 @@ class App extends Component {
     super(props);
 
     this.state = {
-      user: {}
+      user: {},
+      trips: {}
     }
 
-    this._sessionButton.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._loadUsersTrips = this._loadUsersTrips.bind(this);
   }
 
-
   componentDidMount(){
-    this.props.route.firebase.auth().onAuthStateChanged(user => {
+    let firebase = this.props.route.firebase;
+
+    firebase.auth().onAuthStateChanged(user => {
+      // If user is signed in...
       if (user) {
+        // Save user's info to state
         this.setState({ user })
-        // User is signed in.
+
+        // Redirect to profile page
         hashHistory.push('/profile');
+
+        // Load logged in users trips to display on profile page
+        this._loadUsersTrips(user);
+
+      // Otherwise, if no user is signed in.
       } else {
-        this.setState({user: {} })
-        // No user is signed in.
+        // Remove user and their trips from the state
+        this.setState({user: {}, trips: {}})
       }
     });
   }
 
-_sessionButton() {
-    if (_.isEmpty(this.state.user)) {
-      return <LoginButton firebase={this.props.route.firebase}>
-        Login
-      </LoginButton>
-    } else {
-      return <LogoutButton firebase={this.props.route.firebase}>
-        Logout
-      </LogoutButton>
-    }
+  _loadUsersTrips(user) {
+    let uid = user.uid;
+    let firebase = this.props.route.firebase;
+
+    firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
+      let trips = snapshot.val();
+
+      this.setState({ trips });
+    });
   }
 
   _handleSubmit(destination) {
@@ -60,7 +69,8 @@ _sessionButton() {
         firebase: this.props.route.firebase,
         user: this.state.user,
         destination: this.state.destination,
-        _handleSubmit: this._handleSubmit
+        _handleSubmit: this._handleSubmit,
+        trips: this.state.trips
       })
     }
 

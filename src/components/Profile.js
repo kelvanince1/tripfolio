@@ -8,25 +8,6 @@ import LogoutButton from './LogoutButton';
 // Styles and images
 
 class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      trips: {}
-    };
-  }
-
-  componentDidMount() {
-    let firebase = this.props.firebase;
-    let uid = this.props.user.uid;
-
-    firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
-      let trips = snapshot.val();
-
-      this.setState({ trips });
-    });
-  }
-
   render() {
     return(
       <main className="container">
@@ -46,7 +27,7 @@ class Profile extends Component {
             <div id="myTrips">
               <h2>My Trips</h2>
               <ul>
-                {_.map(this.state.trips, (trip, tripId) => {
+                {_.map(this.props.trips, (trip, tripId) => {
                   let destination = _.capitalize(trip.destination);
 
                   return <li key={tripId} data-tripId={tripId}>My trip to {destination}</li>

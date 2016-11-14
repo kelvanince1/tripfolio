@@ -7,6 +7,25 @@ import LogoutButton from './LogoutButton';
 // Styles and images
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      trips: {}
+    };
+  }
+
+  componentDidMount() {
+    let firebase = this.props.route.firebase;
+    let uid = this.props.user.uid;
+    console.log(uid);
+
+    // firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
+    //   let trips = snapshot.val();
+    //   this.setState({ trips });
+    // });
+  }
+
   render() {
     return(
       <main className="container">
@@ -26,8 +45,7 @@ class Profile extends Component {
             <div id="myTrips">
               <h2>My Trips</h2>
               <ul>
-                <li><Link to="/planner">Name of destination</Link></li>
-                <li><Link to="/planner">My trip to Madrid</Link></li>
+                {/* Trips pulled in from database, loaded as links here */}
               </ul>
             </div>
           </div> {/* Close col-md-6 div */}

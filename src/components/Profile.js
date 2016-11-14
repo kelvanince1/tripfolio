@@ -1,6 +1,7 @@
 // Modules
 import React, {Component} from 'react';
 import { Link } from 'react-router';
+import _ from 'lodash';
 
 // Components
 import LogoutButton from './LogoutButton';
@@ -16,14 +17,14 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    let firebase = this.props.route.firebase;
+    let firebase = this.props.firebase;
     let uid = this.props.user.uid;
-    console.log(uid);
 
-    // firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
-    //   let trips = snapshot.val();
-    //   this.setState({ trips });
-    // });
+    firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
+      let trips = snapshot.val();
+
+      this.setState({ trips });
+    });
   }
 
   render() {
@@ -45,7 +46,11 @@ class Profile extends Component {
             <div id="myTrips">
               <h2>My Trips</h2>
               <ul>
-                {/* Trips pulled in from database, loaded as links here */}
+                {_.map(this.state.trips, (trip, tripId) => {
+                  let destination = _.capitalize(trip.destination);
+
+                  return <li key={tripId} data-tripId={tripId}>My trip to {destination}</li>
+                })}
               </ul>
             </div>
           </div> {/* Close col-md-6 div */}

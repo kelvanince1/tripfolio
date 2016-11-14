@@ -16,7 +16,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      user: {}
+      user: {},
+      destination: ''
     }
 
     this._sessionButton = this._sessionButton.bind(this);

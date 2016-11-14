@@ -33,7 +33,6 @@ class App extends Component {
       } else {
         this.setState({user: {} })
         // No user is signed in.
-        hashHistory.pop();
       }
     });
   }

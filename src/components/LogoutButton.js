@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 export default class LogoutButton extends Component{
   constructor(props){
@@ -7,11 +7,11 @@ export default class LogoutButton extends Component{
     this._handleLogout = this._handleLogout.bind(this)
   }
 
-_handleLogout(e){
-  e.preventDefault()
+_handleLogout(replaceState){
   let provider = new
   this.props.firebase.auth.GoogleAuthProvider();
   this.props.firebase.auth().signOut();
+  replaceState('/');
 }
 
   render(){

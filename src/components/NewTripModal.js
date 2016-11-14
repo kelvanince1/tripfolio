@@ -15,6 +15,7 @@ yelp({}, yelpCallback)
 // Styles and images
 
 class NewTripModal extends Component {
+<<<<<<< HEAD
   _handleClick() {
     console.log(yelp);
   }
@@ -24,6 +25,30 @@ class NewTripModal extends Component {
         <form>
           <h4 onClick={this._handleClick.bind(this)}>Where do you want to go?</h4>
           <input type="text" />
+=======
+  constructor(props) {
+    super(props);
+
+    this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleSubmit(e) {
+    e.preventDefault();
+
+    // Grab user info
+    let destination = this.refs.destination.value;
+
+    // Pass the data up the chain to paren't state
+    this.props._handleSubmit(destination);
+  }
+
+  render() {
+    return(
+      <main>
+        <form onSubmit={this._handleSubmit}>
+          <h4>Where do you want to go?</h4>
+          <input type="text" ref="destination" />
+>>>>>>> 7db72dfca0af7fd4c243df6bf2d08207bd291673
           <Link to="/planner">Get Started!</Link>
         </form>
       </main>

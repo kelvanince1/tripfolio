@@ -1,6 +1,7 @@
 // Modules
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
+import firebase from 'firebase';
 
 // Components
 
@@ -13,6 +14,9 @@ class NewTripModal extends Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
+
+
+
   _handleSubmit(e) {
     e.preventDefault();
 
@@ -21,7 +25,14 @@ class NewTripModal extends Component {
 
     hashHistory.push('/planner');
 
-    // Pass the data up the chain to paren't state
+    // The .child string will be altered when a variable is defined for the new data which will be added to a users new trip.
+    var newTrip = this.refs.destination;
+    firebase.database().ref().child(this.props.destination).push().key.then(() => {
+      this.refs.destination.value = "";
+      this.refs.destination.focus();
+    })
+
+    // Pass the data up the chain to parent state
     this.props._handleSubmit(destination);
   }
 

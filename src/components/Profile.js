@@ -13,7 +13,7 @@ class Profile extends Component {
         <div className="row">
           <div className="col-md-6">
             <div id="profileInfo">
-              <img src={this.props.user.providerData[0].photoURL} alt="Profile Picture" />
+              <img src={this.props.user.providerData[0].photoURL} alt="Profile Picture" id="profPic" />
               <h3>{this.props.user.providerData[0].displayName}</h3>
               <p>User description</p>
             </div>

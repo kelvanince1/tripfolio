@@ -8,12 +8,23 @@ import SuggestionBox from './SuggestionBox';
 // Styles and images
 
 class TravelPlanningPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      results: []
+    }
+  }
+
   componentDidMount() {
     let destination = this.props.destination;
-    console.log(destination);
-    axios.get(`https://thawing-cliffs-39852.herokuapp.com/${destination}`)
-      .then(function(response) {
-        console.log(response);
+    let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}`;
+
+    axios.get(link)
+      .then((response) => {
+        let results = response.data.businesses;
+
+        this.setState({ results });
       });
   }
 
@@ -27,7 +38,7 @@ class TravelPlanningPage extends Component {
           <a href="#">Attractions</a>
           <a href="#">Hotels</a>
         </nav>
-        <SuggestionBox />
+        <SuggestionBox results={this.state.results} />
         <div id="myTiles">
 
         </div>

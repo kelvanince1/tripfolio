@@ -1,5 +1,6 @@
 // Modules
 import React, {Component} from 'react';
+import _ from 'lodash';
 
 // Components
 
@@ -8,14 +9,15 @@ import React, {Component} from 'react';
 class SuggestionBox extends Component {
   render() {
     return(
-      <div id="suggestionContainer">
-        <div className="suggestionTile">
-          <h4>Random Restaurant</h4>
-          <p>API info will populate here</p>
-        </div>
-        <div className="suggestionTile">
-          <h4>Random Restaurant 2</h4>
-          <p>API info will populate here</p>
+      <div className="container">
+        <div className="row" id="suggestionContainer">
+          {_.map(this.props.results, (business, index) => {
+            let image = business["image_url"];
+            let name = business.name;
+            let url = business.url;
+
+            return <div className="suggestionTile" key={index}><img src={image} /><h6>{name}</h6></div>
+          })}
         </div>
       </div>
     );

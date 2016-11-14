@@ -7,15 +7,6 @@ import _ from 'lodash';
 // Styles and Images
 
 class SuggestionBox extends Component {
-  // The .child string will be altered when a variable is defined for the new data which will be added to a users new trip.
-  // _handleClick() {
-  //   var newTrip = this.refs.destination;
-  //   firebase.database().ref().child(this.props.destination).push().key.then(() => {
-  //     this.refs.destination.value = "";
-  //     this.refs.destination.focus();
-  //   })
-  // }
-
   render() {
     return(
       <div className="container">

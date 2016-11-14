@@ -14,6 +14,30 @@ class TravelPlanningPage extends Component {
     this.state = {
       results: []
     }
+
+    this._handleClick = this._handleClick.bind(this);
+  }
+
+  _handleClick() {
+    let firebase = this.props.firebase;
+    let uid = this.props.user.uid;
+    let destination = this.props.destination;
+
+    firebase.database().ref(`/tripbook/${uid}`).push({
+      destination: destination,
+      places: [
+        {
+          name: 'Puerta del Sol',
+          image: 'http://fakeurl.com'
+        },
+        {
+          name: 'Museo del Prado',
+          image: 'http://fakeurl.com'
+        }
+      ]
+    }).then(() => {
+      console.log('success');
+    })
   }
 
   componentDidMount() {
@@ -41,9 +65,7 @@ class TravelPlanningPage extends Component {
           <a href="#">Hotels</a>
         </nav>
         <SuggestionBox results={this.state.results} />
-        <div id="myTiles">
-
-        </div>
+        <button onClick={this._handleClick}>Save</button>
       </main>
     );
   }

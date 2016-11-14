@@ -20,6 +20,7 @@ class App extends Component {
       trips: {}
     }
 
+    this._handleClick = this._handleClick.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
     this._loadUsersTrips = this._loadUsersTrips.bind(this);
   }
@@ -58,6 +59,28 @@ class App extends Component {
     });
   }
 
+  _handleClick() {
+    let firebase = this.props.route.firebase;
+    let uid = this.state.user.uid;
+    let destination = this.state.destination;
+
+    firebase.database().ref(`/tripbook/${uid}`).push({
+      destination: destination,
+      places: [
+        {
+          name: 'Puerta del Sol',
+          image: 'http://fakeurl.com'
+        },
+        {
+          name: 'Museo del Prado',
+          image: 'http://fakeurl.com'
+        }
+      ]
+    }).then(() => {
+      console.log('success');
+    })
+  }
+
   _handleSubmit(destination) {
     this.setState({ destination });
   }
@@ -66,11 +89,12 @@ class App extends Component {
     let children = null;
     if(this.props.children){
       children = React.cloneElement(this.props.children, {
-        firebase: this.props.route.firebase,
-        user: this.state.user,
-        destination: this.state.destination,
+        _handleClick: this._handleClick,
         _handleSubmit: this._handleSubmit,
-        trips: this.state.trips
+        destination: this.state.destination,
+        firebase: this.props.route.firebase,
+        trips: this.state.trips,
+        user: this.state.user
       })
     }
 

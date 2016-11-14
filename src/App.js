@@ -26,8 +26,10 @@ class App extends Component {
 
 
   componentDidMount(){
+
     this.props.route.firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        console.log(user)
         this.setState({ user })
         // User is signed in.
 

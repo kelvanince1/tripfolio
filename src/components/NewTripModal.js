@@ -1,6 +1,6 @@
 // Modules
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 // Components
 
@@ -19,6 +19,8 @@ class NewTripModal extends Component {
     // Grab user info
     let destination = this.refs.destination.value;
 
+    hashHistory.push('/planner');
+
     // Pass the data up the chain to paren't state
     this.props._handleSubmit(destination);
   }
@@ -29,7 +31,7 @@ class NewTripModal extends Component {
         <form onSubmit={this._handleSubmit}>
           <h4>Where do you want to go?</h4>
           <input type="text" ref="destination" />
-          <Link to="/planner">Get Started!</Link>
+          <input type="submit" value="Get Started!"/>
         </form>
       </main>
     );

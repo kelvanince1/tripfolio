@@ -1,6 +1,7 @@
 // Modules
 import React, {Component} from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 // Components
 import SuggestionBox from './SuggestionBox';
@@ -8,12 +9,23 @@ import SuggestionBox from './SuggestionBox';
 // Styles and images
 
 class TravelPlanningPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      results: []
+    }
+  }
+
   componentDidMount() {
     let destination = this.props.destination;
-    console.log(destination);
-    axios.get(`https://thawing-cliffs-39852.herokuapp.com/${destination}`)
-      .then(function(response) {
-        console.log(response);
+    let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}`;
+
+    axios.get(link)
+      .then((response) => {
+        let results = response.data.businesses;
+
+        this.setState({ results });
       });
   }
 
@@ -29,7 +41,13 @@ class TravelPlanningPage extends Component {
         </nav>
         <SuggestionBox />
         <div id="myTiles">
+          {_.map(this.state.results, (business) => {
+            let image = business["image_url"];
+            let name = business.name;
+            let url = business.url;
 
+            return <div className="col-md-3"><img src={image} /><h6>{name}</h6></div>
+          })}
         </div>
       </main>
     );

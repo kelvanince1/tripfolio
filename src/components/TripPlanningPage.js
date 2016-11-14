@@ -1,7 +1,6 @@
 // Modules
 import React, {Component} from 'react';
 import axios from 'axios';
-import _ from 'lodash';
 
 // Components
 import SuggestionBox from './SuggestionBox';
@@ -39,15 +38,9 @@ class TravelPlanningPage extends Component {
           <a href="#">Attractions</a>
           <a href="#">Hotels</a>
         </nav>
-        <SuggestionBox />
+        <SuggestionBox results={this.state.results} />
         <div id="myTiles">
-          {_.map(this.state.results, (business) => {
-            let image = business["image_url"];
-            let name = business.name;
-            let url = business.url;
 
-            return <div className="col-md-3"><img src={image} /><h6>{name}</h6></div>
-          })}
         </div>
       </main>
     );

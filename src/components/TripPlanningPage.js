@@ -27,6 +27,7 @@ class TravelPlanningPage extends Component {
     this._loadUsersTiles = this._loadUsersTiles.bind(this);
     this._removeYelpListing = this._removeYelpListing.bind(this);
     this._deleteTile = this._deleteTile.bind(this);
+    this._showSavedModal = this._showSavedModal.bind(this);
   }
 
   _axiosCall(e) {
@@ -63,6 +64,17 @@ class TravelPlanningPage extends Component {
 
   _showModal(index) {
     let selectedTile = this.state.results[index];
+
+    this.setState({
+      modalClass: '',
+      selectedTile: selectedTile,
+      selectedTileIndex: index
+    })
+  }
+
+  _showSavedModal(index) {
+    let selectedTile = this.state.tiles[index].tile;
+    console.log(selectedTile);
 
     this.setState({
       modalClass: '',
@@ -151,7 +163,7 @@ class TravelPlanningPage extends Component {
               let name = tile.tile.name;
               let url = tile.tile.url;
 
-              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} />
+              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} />
             })}
           </div>
         </div>

@@ -24,6 +24,7 @@ class TravelPlanningPage extends Component {
     this._setActiveTab = this._setActiveTab.bind(this);
     this._showModal = this._showModal.bind(this);
     this._loadUsersTiles = this._loadUsersTiles.bind(this);
+    this._removeYelpListing = this._removeYelpListing.bind(this);
   }
 
   _axiosCall(e) {
@@ -63,7 +64,8 @@ class TravelPlanningPage extends Component {
 
     this.setState({
       modalClass: '',
-      selectedTile: selectedTile
+      selectedTile: selectedTile,
+      selectedTileIndex: index
     })
   }
 
@@ -92,6 +94,18 @@ class TravelPlanningPage extends Component {
 
       this.setState({ tiles });
     });
+  }
+
+  _removeYelpListing(index) {
+    let yelpListing = this.state.results[index];
+
+    let newList = _.remove(this.state.results, (result) => {
+      return this.state.results.indexOf(result) !== index;
+    });
+
+    this.setState({
+      results: newList
+    })
   }
 
   componentDidMount() {
@@ -135,7 +149,7 @@ class TravelPlanningPage extends Component {
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
         <button onClick={this.props._handleClick}>Save</button>
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId}/>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>
     );
   }

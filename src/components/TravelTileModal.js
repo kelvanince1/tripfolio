@@ -4,10 +4,10 @@ class TravelTileModal extends Component {
   render() {
     return(
       <div>
-        <div id="modalBackground">
+        <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
           <div id="modalContainer">
             <div id="modalHeader">
-              <span id="closeModal">x</span>
+              <span id="closeModal" onClick={this.props._closeModal}>x</span>
             </div>
             <div id="modalContent">
               <h4>This is a modal</h4>

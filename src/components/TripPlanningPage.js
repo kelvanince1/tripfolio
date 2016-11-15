@@ -13,11 +13,14 @@ class TravelPlanningPage extends Component {
     super(props);
 
     this.state = {
-      results: []
+      results: [],
+      modalClass: 'hidden'
     }
 
     this._axiosCall = this._axiosCall.bind(this);
+    this._closeModal = this._closeModal.bind(this);
     this._setActiveTab = this._setActiveTab.bind(this);
+    this._showModal = this._showModal.bind(this);
   }
 
   _axiosCall(e) {
@@ -50,6 +53,18 @@ class TravelPlanningPage extends Component {
 
         this.setState({ results });
       });
+  }
+
+  _showModal() {
+    this.setState({
+      modalClass: ''
+    })
+  }
+
+  _closeModal() {
+    this.setState({
+      modalClass: 'hidden'
+    })
   }
 
   _setActiveTab(e) {
@@ -89,7 +104,8 @@ class TravelPlanningPage extends Component {
         </nav>
         <SuggestionBox results={this.state.results} />
         <button onClick={this.props._handleClick}>Save</button>
-        <TravelTileModal />
+        <button onClick={this._showModal}>Show Modal</button>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} />
       </main>
     );
   }

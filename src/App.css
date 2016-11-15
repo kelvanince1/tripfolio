@@ -132,8 +132,11 @@ ul {
 /*---PROFILE STYLES---*/
 
 #profPic {
-  width: 15%;
+  width: 10%;
   height: auto;
+  position: relative;
+  right: -600px;
+  top: -140px;
 }
 
 /*---PLANNER STYLES---*/
@@ -204,6 +207,22 @@ ul {
   margin-right: 2px;
   top: 0;
   right: 10px;
+}
+
+#newTripId {
+  text-decoration: none;
+  color: white;
+}
+
+#where {
+  position: relative;
+  right: 200px;
+  top: -100px;
+}
+
+.trips {
+  position: relative;
+  top: -80px;
 }
 
 /*#header button {

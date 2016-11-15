@@ -1,5 +1,6 @@
 // Modules
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 import _ from 'lodash';
 
 // Components
@@ -10,6 +11,7 @@ class SuggestionBox extends Component {
   render() {
     return(
       <div className="container">
+        <Link to="/profile" id="profile-button" className="btn btn-default">See my profile</Link>
         <div className="row" id="suggestionContainer">
           {_.map(this.props.results, (business, index) => {
             let image = business["image_url"];

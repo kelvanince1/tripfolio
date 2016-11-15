@@ -156,6 +156,7 @@ ul {
   background-color: white;
   width: 30%;
   height: 400px;
+  z-index: 1;
 }
 
 #modalHeader {
@@ -184,10 +185,11 @@ ul {
 #suggestionContainer {
   overflow-x: scroll;
   width: 80%;
-  height: 100px;
+  height: 400px;
   margin: 0 auto;
 }
 
 .suggestionTile {
   display: inline-block;
+  cursor: pointer;
 }

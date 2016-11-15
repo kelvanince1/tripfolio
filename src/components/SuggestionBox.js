@@ -4,10 +4,21 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 
 // Components
+import SuggestionTile from './SuggestionTile';
 
 // Styles and Images
 
 class SuggestionBox extends Component {
+  constructor(props) {
+    super(props);
+
+    this._showModal = this._showModal.bind(this);
+  }
+
+  _showModal(index) {
+    this.props._showModal(index)
+  }
+
   render() {
     return(
       <div className="container">
@@ -18,7 +29,7 @@ class SuggestionBox extends Component {
             let name = business.name;
             let url = business.url;
 
-            return <div className="suggestionTile" key={index}><img src={image} /><h6>{name}</h6></div>
+            return <SuggestionTile index={index} image={image} name={name} _showModal={this._showModal} />
           })}
         </div>
       </div>

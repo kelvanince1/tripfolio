@@ -55,9 +55,12 @@ class TravelPlanningPage extends Component {
       });
   }
 
-  _showModal() {
+  _showModal(index) {
+    let selectedTile = this.state.results[index];
+
     this.setState({
-      modalClass: ''
+      modalClass: '',
+      selectedTile: selectedTile
     })
   }
 
@@ -102,10 +105,9 @@ class TravelPlanningPage extends Component {
               Hotels
           </a>
         </nav>
-        <SuggestionBox results={this.state.results} />
+        <SuggestionBox results={this.state.results} _showModal={this._showModal} />
         <button onClick={this.props._handleClick}>Save</button>
-        <button onClick={this._showModal}>Show Modal</button>
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} />
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} />
       </main>
     );
   }

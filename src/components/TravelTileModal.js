@@ -1,29 +1,54 @@
 import React, { Component } from 'react';
 
 class TravelTileModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this._addTile = this._addTile.bind(this);
+  }
+
+  _addTile() {
+    let firebase = this.props.firebase;
+    let uid = this.props.user.uid;
+    let tripId = this.props.tripId;
+    let destination = this.props.destination;
+    let tile = this.props.selectedTile;
+
+    console.log(uid);
+    console.log(tripId);
+    console.log(tile);
+    
+    firebase.database().ref(`/tripbook/${uid}/${tripId}/places`).push({
+      tile
+    }).then(() => {
+      console.log('success');
+    })
+  }
+
   render() {
+    let name, image;
+
+    if(this.props.selectedTile) {
+      name = this.props.selectedTile.name;
+      image = this.props.selectedTile["image_url"];
+    } else {
+      name = "Placeholder Title";
+      image = "#";
+    }
+
     return(
       <div>
-      {/*<!-- Button trigger modal -->*/}
-        <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          Launch demo modal
-        </button>
-
-        {/*<!-- Modal -->*/}
-        <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 className="modal-title" id="myModalLabel">Modal title</h4>
-              </div>
-              <div className="modal-body">
-                ...
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
-              </div>
+        <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
+          <div id="modalContainer">
+            <div id="modalHeader">
+              <span id="closeModal" onClick={this.props._closeModal}>x</span>
+            </div>
+            <div id="modalContent">
+              <h4>{name}</h4>
+              <img src={image} />
+            </div>
+            <div id="modalFooter">
+              <button onClick={this._addTile}>Add</button>
             </div>
           </div>
         </div>

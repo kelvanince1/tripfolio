@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 
 // Components
+import TravelTileModal from './TravelTileModal';
 
 // Styles and images
 
@@ -11,7 +12,7 @@ class Home extends Component {
   render() {
     return(
       <main id="main" className="container-fluid">
-       <div className="continer-inner">
+       <div className="container-inner">
          <h1>Travel Planner</h1>
          <LoginButton firebase={this.props.firebase}>Login</LoginButton>
        </div>

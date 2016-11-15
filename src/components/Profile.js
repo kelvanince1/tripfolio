@@ -30,9 +30,20 @@ class Profile extends Component {
                 <li><Link to="/planner">My trip to Madrid</Link></li>
               </ul>
             </div>
-          </div> {/* Close col-md-6 div */}
-        </div> {/* Close row div */}
-      </main>
+            <div className="trips">
+              <div id="myTrips">
+                <h2>My Trips</h2>
+                <ul>
+                  {_.map(this.props.trips, (trip, tripId) => {
+                    let destination = _.capitalize(trip.destination);
+
+                    return <li key={tripId} data-tripId={tripId}><Link to={`/planner/${tripId}`}>My trip to {destination}</Link></li>
+                  })}
+                </ul>
+              </div>
+            </div> {/* Close col-md-6 div */}
+          </div> {/* Close row div */}
+        </main>
     );
   }
 }

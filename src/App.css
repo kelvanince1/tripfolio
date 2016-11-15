@@ -107,6 +107,11 @@ ul {
   height: auto;
 }
 
+/*---PLANNER STYLES---*/
+.active {
+  background-color: black;
+}
+
 /*---SUGGESTION BOX STYLES---*/
 
 #suggestionContainer {

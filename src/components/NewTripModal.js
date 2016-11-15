@@ -1,6 +1,6 @@
 // Modules
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import firebase from 'firebase';
 
 // Components
@@ -29,6 +29,7 @@ class NewTripModal extends Component {
   render() {
     return(
       <main>
+        <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link>
         <form onSubmit={this._handleSubmit}>
           <h4>Where do you want to go?</h4>
           <input type="text" ref="destination" />

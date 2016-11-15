@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 
 export default class LogoutButton extends Component{
   constructor(props){
@@ -8,17 +7,19 @@ export default class LogoutButton extends Component{
   }
 
 _handleLogout(replaceState){
-  let provider = new
-  this.props.firebase.auth.GoogleAuthProvider();
-  this.props.firebase.auth().signOut();
-  replaceState('/');
+  replaceState('#');
+  this.props.firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+}, function(error) {
+  console.error('Sign Out Error', error);
+});
+
 }
 
   render(){
     return(
       <div>
-        <Link to="/profile" className="btn btn-default">See my profile</Link>
-        <a href="#" onClick={this._handleLogout} className="btn btn-default">Logout</a>
+        <a href="#" onClick={this._handleLogout} id="logout-button" className="btn btn-default">Logout</a>
       </div>
     )
   }

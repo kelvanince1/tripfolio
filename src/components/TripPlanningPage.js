@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Components
 import SuggestionBox from './SuggestionBox';
+import TravelTileModal from './TravelTileModal';
 
 // Styles and images
 
@@ -88,6 +89,7 @@ class TravelPlanningPage extends Component {
         </nav>
         <SuggestionBox results={this.state.results} />
         <button onClick={this.props._handleClick}>Save</button>
+        <TravelTileModal />
       </main>
     );
   }

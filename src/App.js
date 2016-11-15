@@ -33,6 +33,7 @@ class App extends Component {
       if (user) {
         // Save user's info to state
         this.setState({ user })
+<<<<<<< HEAD
 
         // Redirect to profile page
         hashHistory.push('/profile');

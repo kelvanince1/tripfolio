@@ -1,6 +1,7 @@
 // Modules
 import React, {Component} from 'react';
 import { Link } from 'react-router';
+import _ from 'lodash';
 
 // Components
 import LogoutButton from './LogoutButton';
@@ -27,8 +28,11 @@ class Profile extends Component {
             <div id="myTrips">
               <h2>My Trips</h2>
               <ul>
-                <li><Link to="/planner">Name of destination</Link></li>
-                <li><Link to="/planner">My trip to Madrid</Link></li>
+                {_.map(this.props.trips, (trip, tripId) => {
+                  let destination = _.capitalize(trip.destination);
+
+                  return <li key={tripId} data-tripId={tripId}>My trip to {destination}</li>
+                })}
               </ul>
             </div>
           </div> {/* Close col-md-6 div */}

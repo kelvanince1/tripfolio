@@ -16,37 +16,66 @@ class App extends Component {
     super(props);
 
     this.state = {
-      user: {}
+      user: {},
+      trips: {}
     }
 
-    this._sessionButton.bind(this);
+    this._handleClick = this._handleClick.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._loadUsersTrips = this._loadUsersTrips.bind(this);
   }
 
-
   componentDidMount(){
-    this.props.route.firebase.auth().onAuthStateChanged(user => {
+    let firebase = this.props.route.firebase;
+
+    firebase.auth().onAuthStateChanged(user => {
+      // If user is signed in...
       if (user) {
+        // Save user's info to state
         this.setState({ user })
-        // User is signed in.
-        
+
+        // Load logged in users trips to display on profile page
+        this._loadUsersTrips(user);
+
+      // Otherwise, if no user is signed in.
       } else {
-        this.setState({user: {} })
-        // No user is signed in.
+        // Remove user and their trips from the state
+        this.setState({ user: {}, destination: {} });
       }
     });
   }
 
-_sessionButton() {
-    if (_.isEmpty(this.state.user)) {
-      return <LoginButton firebase={this.props.route.firebase}>
-        Login
-      </LoginButton>
-    } else {
-      return <LogoutButton firebase={this.props.route.firebase}>
-        Logout
-      </LogoutButton>
-    }
+  _loadUsersTrips(user) {
+    let uid = user.uid;
+    let firebase = this.props.route.firebase;
+
+    firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
+      let trips = snapshot.val();
+
+      this.setState({ trips });
+    });
+  }
+
+  _handleClick() {
+    let firebase = this.props.route.firebase;
+    let uid = this.state.user.uid;
+    let destination = this.state.destination;
+
+    firebase.database().ref(`/tripbook/${uid}`).push({
+      destination: destination,
+      places: [
+        {
+          name: 'Puerta del Sol',
+          image: 'http://fakeurl.com'
+        },
+        {
+          name: 'Museo del Prado',
+          image: 'http://fakeurl.com'
+        }
+      ]
+    }).then(() => {
+      console.log('success');
+    })
   }
 
   _handleSubmit(destination) {
@@ -57,10 +86,12 @@ _sessionButton() {
     let children = null;
     if(this.props.children){
       children = React.cloneElement(this.props.children, {
-        firebase: this.props.route.firebase,
-        user: this.state.user,
+        _handleClick: this._handleClick,
+        _handleSubmit: this._handleSubmit,
         destination: this.state.destination,
-        _handleSubmit: this._handleSubmit
+        firebase: this.props.route.firebase,
+        trips: this.state.trips,
+        user: this.state.user
       })
     }
 

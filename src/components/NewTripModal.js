@@ -14,9 +14,6 @@ class NewTripModal extends Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-
-
-
   _handleSubmit(e) {
     e.preventDefault();
 
@@ -24,13 +21,6 @@ class NewTripModal extends Component {
     let destination = this.refs.destination.value;
 
     hashHistory.push('/planner');
-
-    // The .child string will be altered when a variable is defined for the new data which will be added to a users new trip.
-    var newTrip = this.refs.destination;
-    firebase.database().ref().child(this.props.destination).push().key.then(() => {
-      this.refs.destination.value = "";
-      this.refs.destination.focus();
-    })
 
     // Pass the data up the chain to parent state
     this.props._handleSubmit(destination);

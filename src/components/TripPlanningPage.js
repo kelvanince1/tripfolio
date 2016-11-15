@@ -7,6 +7,7 @@ import _ from 'lodash';
 import SuggestionBox from './SuggestionBox';
 import SuggestionTile from './SuggestionTile';
 import TravelTileModal from './TravelTileModal';
+import UsersTile from './UsersTile';
 
 // Styles and images
 
@@ -25,6 +26,7 @@ class TravelPlanningPage extends Component {
     this._showModal = this._showModal.bind(this);
     this._loadUsersTiles = this._loadUsersTiles.bind(this);
     this._removeYelpListing = this._removeYelpListing.bind(this);
+    this._deleteTile = this._deleteTile.bind(this);
   }
 
   _axiosCall(e) {
@@ -113,6 +115,12 @@ class TravelPlanningPage extends Component {
     this._loadUsersTiles();
   }
 
+  _deleteTile(index) {
+    let uid = this.props.user.uid;
+    let tripId = this.props.params.tripId;
+    this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}/places/${index}`).remove();
+  }
+
   render() {
     return(
       <main>
@@ -143,7 +151,7 @@ class TravelPlanningPage extends Component {
               let name = tile.tile.name;
               let url = tile.tile.url;
 
-              return <SuggestionTile index={index} key={index} image={image} name={name} />
+              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} />
             })}
           </div>
         </div>

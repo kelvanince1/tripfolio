@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
 import NewTripModal from './components/NewTripModal';
+import TravelTileModal from './components/TravelTileModal';
 
 import './index.css';
 

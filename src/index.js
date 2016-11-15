@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
 import NewTripModal from './components/NewTripModal';
+import TravelTileModal from './components/TravelTileModal';
 import Header from './components/Header';
 
 import './index.css';
@@ -20,7 +21,7 @@ ReactDOM.render(
     <Route path='/' component={App} firebase={firebase}>
       <IndexRoute component={Home}/>
       <Route path='/profile' component={Profile} onEnter={requireAuth}/>
-      <Route path='/planner' component={TripPlanningPage} onEnter={requireAuth}/>
+      <Route path='/planner/:tripId' component={TripPlanningPage} onEnter={requireAuth}/>
       <Route path='/newTrip' component={NewTripModal} onEnter={requireAuth}/>
     </Route>
   </Router>,

@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 body {
   text-align: center;
   color: white;
@@ -137,17 +141,57 @@ ul {
   background-color: black;
 }
 
+/*---MODAL STYLES---*/
+#modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  height: 100%;
+  width: 100%;
+}
+
+#modalContainer {
+  margin: 15% auto;
+  background-color: white;
+  width: 30%;
+  height: 400px;
+  z-index: 1;
+}
+
+#modalHeader {
+  background-color: lightgrey;
+  text-align: right;
+  height: 8%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+#closeModal {
+  cursor: pointer;
+}
+
+#modalContent {
+  color: black;
+  height: 82%;
+}
+
+#modalFooter {
+  height: 10%;
+}
+
 /*---SUGGESTION BOX STYLES---*/
 
 #suggestionContainer {
   overflow-x: scroll;
   width: 80%;
-  height: 100px;
+  height: 400px;
   margin: 0 auto;
 }
 
 .suggestionTile {
   display: inline-block;
+  cursor: pointer;
 }
 
 #header img {

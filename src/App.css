@@ -149,3 +149,21 @@ ul {
 .suggestionTile {
   display: inline-block;
 }
+
+#header img {
+  float: left;
+}
+
+#header li {
+  display: inline;
+  margin-top: 1px;
+  margin-right: 2px;
+  top: 0;
+  right: 10px;
+}
+
+/*#header button {
+  background-color: red;
+  color: #fff;
+  border-radius: 4px;
+}*/

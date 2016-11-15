@@ -30,7 +30,7 @@ class SuggestionBox extends Component {
             let name = business.name;
             let url = business.url;
 
-            return <SuggestionTile index={index} image={image} name={name} _showModal={this._showModal} />
+            return <SuggestionTile key={index} index={index} image={image} name={name} _showModal={this._showModal} />
           })}
         </div>
       </div>

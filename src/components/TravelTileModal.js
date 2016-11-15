@@ -5,6 +5,7 @@ class TravelTileModal extends Component {
     super(props);
 
     this._addTile = this._addTile.bind(this);
+    this._removeYelpListing = this._removeYelpListing.bind(this);
   }
 
   _addTile() {
@@ -14,15 +15,17 @@ class TravelTileModal extends Component {
     let destination = this.props.destination;
     let tile = this.props.selectedTile;
 
-    console.log(uid);
-    console.log(tripId);
-    console.log(tile);
-    
     firebase.database().ref(`/tripbook/${uid}/${tripId}/places`).push({
       tile
     }).then(() => {
-      console.log('success');
+      // Delete the original yelp listing from results so that it does not render on the page
+
+      this._removeYelpListing(this.props.selectedTileIndex);
     })
+  }
+
+  _removeYelpListing(index) {
+    this.props._removeYelpListing(index);
   }
 
   render() {

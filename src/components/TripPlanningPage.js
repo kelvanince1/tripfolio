@@ -1,9 +1,11 @@
 // Modules
 import React, {Component} from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 // Components
 import SuggestionBox from './SuggestionBox';
+import SuggestionTile from './SuggestionTile';
 import TravelTileModal from './TravelTileModal';
 
 // Styles and images
@@ -21,6 +23,8 @@ class TravelPlanningPage extends Component {
     this._closeModal = this._closeModal.bind(this);
     this._setActiveTab = this._setActiveTab.bind(this);
     this._showModal = this._showModal.bind(this);
+    this._loadUsersTiles = this._loadUsersTiles.bind(this);
+    this._removeYelpListing = this._removeYelpListing.bind(this);
   }
 
   _axiosCall(e) {
@@ -60,7 +64,8 @@ class TravelPlanningPage extends Component {
 
     this.setState({
       modalClass: '',
-      selectedTile: selectedTile
+      selectedTile: selectedTile,
+      selectedTileIndex: index
     })
   }
 
@@ -78,8 +83,34 @@ class TravelPlanningPage extends Component {
       e.target.className = "active";
   }
 
+  _loadUsersTiles() {
+    let firebase = this.props.firebase;
+    let uid = this.props.user.uid;
+    let tripId = this.props.params.tripId;
+
+    firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
+      let tiles = snapshot.val().places;
+      console.log('tiles', tiles);
+
+      this.setState({ tiles });
+    });
+  }
+
+  _removeYelpListing(index) {
+    let yelpListing = this.state.results[index];
+
+    let newList = _.remove(this.state.results, (result) => {
+      return this.state.results.indexOf(result) !== index;
+    });
+
+    this.setState({
+      results: newList
+    })
+  }
+
   componentDidMount() {
     this._axiosCall();
+    this._loadUsersTiles();
   }
 
   render() {
@@ -87,7 +118,6 @@ class TravelPlanningPage extends Component {
       <main>
         <h2>My trip to <span id="destinationName">{this.props.destination}</span></h2>
         <nav>
-          <h3>Suggestions</h3>
           <a href="#"
             onClick={this._axiosCall}
             data-query="tourist%20attractions"
@@ -105,9 +135,21 @@ class TravelPlanningPage extends Component {
               Hotels
           </a>
         </nav>
+        <div>
+          <h4>My Saved Tiles</h4>
+          <div id="myTilesContainer">
+            {_.map(this.state.tiles, (tile, index) => {
+              let image = tile.tile["image_url"];
+              let name = tile.tile.name;
+              let url = tile.tile.url;
+
+              return <SuggestionTile index={index} key={index} image={image} name={name} />
+            })}
+          </div>
+        </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
         <button onClick={this.props._handleClick}>Save</button>
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId}/>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>
     );
   }

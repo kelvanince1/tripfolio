@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
 
 class TravelTileModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this._addTile = this._addTile.bind(this);
+  }
+
+  _addTile() {
+    let firebase = this.props.firebase;
+    let uid = this.props.user.uid;
+    let tripId = this.props.tripId;
+    let destination = this.props.destination;
+    let tile = this.props.selectedTile;
+
+    console.log(uid);
+    console.log(tripId);
+    console.log(tile);
+    
+    firebase.database().ref(`/tripbook/${uid}/${tripId}/places`).push({
+      tile
+    }).then(() => {
+      console.log('success');
+    })
+  }
+
   render() {
     let name, image;
 
@@ -24,8 +48,7 @@ class TravelTileModal extends Component {
               <img src={image} />
             </div>
             <div id="modalFooter">
-              <button onClick={this._logTile}>Show tile</button>
-              <button>Close</button>
+              <button onClick={this._addTile}>Add</button>
             </div>
           </div>
         </div>

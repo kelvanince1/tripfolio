@@ -107,7 +107,7 @@ class TravelPlanningPage extends Component {
         </nav>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
         <button onClick={this.props._handleClick}>Save</button>
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} />
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId}/>
       </main>
     );
   }

@@ -28,7 +28,7 @@ class NewTripModal extends Component {
 
   render() {
     return(
-      <main>
+      <main id="newTrips">
         <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link>
         <form onSubmit={this._handleSubmit}>
           <h4>Where do you want to go?</h4>

@@ -34,16 +34,13 @@ class App extends Component {
         // Save user's info to state
         this.setState({ user })
 
-        // Redirect to profile page
-        hashHistory.push('/profile');
-
         // Load logged in users trips to display on profile page
         this._loadUsersTrips(user);
 
       // Otherwise, if no user is signed in.
       } else {
         // Remove user and their trips from the state
-        this.setState({user: {}, trips: {}})
+        this.setState({ user: {}, destination: {} });
       }
     });
   }

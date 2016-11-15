@@ -29,7 +29,7 @@ class App extends Component {
       if (user) {
         this.setState({ user })
         // User is signed in.
-        hashHistory.push('/profile');
+        
       } else {
         this.setState({user: {} })
         // No user is signed in.

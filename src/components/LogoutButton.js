@@ -7,10 +7,13 @@ export default class LogoutButton extends Component{
   }
 
 _handleLogout(replaceState){
-  let provider = new
-  this.props.firebase.auth.GoogleAuthProvider();
-  this.props.firebase.auth().signOut();
-  replaceState('/');
+  replaceState('#');
+  this.props.firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+}, function(error) {
+  console.error('Sign Out Error', error);
+});
+
 }
 
   render(){

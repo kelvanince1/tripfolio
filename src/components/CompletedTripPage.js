@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 import _ from 'lodash';
 
 import UsersTile from './UsersTile';
@@ -16,12 +17,16 @@ class CompletedTripPage extends Component {
   }
 
   _renderMyTrip() {
+    let owner = this.props.params.uid;
+    let tripId = this.props.params.tripId;
+    let destination = this.props.params.destination;
+
     return (
       <div className="pageHeader">
         <h2>My trip to {this.props.params.destination}</h2>
         <nav>
           {/* STRETCH: switch to make your trip public or private */}
-          <button>Edit</button>
+          <Link to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link>
           <input type="text" placeholder="Search your trips" ref="searchBar" />
         </nav>
       </div>

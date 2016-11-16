@@ -1,5 +1,6 @@
 // Modules
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -166,7 +167,7 @@ class TravelPlanningPage extends Component {
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
-        <button onClick={this.props._handleClick}>Save</button>
+        <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
         <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>
     );

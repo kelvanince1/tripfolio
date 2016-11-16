@@ -1,7 +1,6 @@
 // Modules
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
-import firebase from 'firebase';
 
 // Components
 

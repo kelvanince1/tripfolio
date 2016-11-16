@@ -35,10 +35,6 @@ class Profile extends Component {
     render() {
       return(
           <main className="container">
-            <Link to="/newTrip" id="trips-button" className="btn btn-default">My Trips</Link>
-            <div id="logout">
-              <LogoutButton firebase={this.props.route.firebase}>Logout</LogoutButton>
-            </div>
             <div className="row">
               <div className="profile">
                 <div id="profileInfo">

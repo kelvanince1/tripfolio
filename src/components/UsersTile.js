@@ -12,15 +12,21 @@ class UsersTile extends Component {
     this.props._showModal(this.props.index);
   }
 
-  _deleteTile() {
+  _deleteTile(event) {
+    event.preventDefault();
+    event.stopPropagation();
     this.props._deleteTile(this.props.index);
+    // this.props.firebase.database().ref(`/UsersTile/${this.props.uid}`).remove();
   }
 
   render() {
     return(
       <div className="suggestionTile" key={this.props.index} onClick={this._showModal}>
-      <span id="deleteTile" onClick={this._deleteTile}>x</span><img src={this.props.image} />
-      <h6>{this.props.name}</h6></div>
+      <span id="deleteTile" onClick={this._deleteTile}>x</span>
+      <div>
+        <img src={this.props.image} />
+        <h6>{this.props.name}</h6></div>
+      </div>
     );
   }
 }

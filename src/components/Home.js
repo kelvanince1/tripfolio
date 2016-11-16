@@ -1,12 +1,12 @@
 // Modules
 import React, {Component} from 'react';
 import _ from 'lodash';
+import {hashHistory} from 'react-router';
 // Components
 
 // Styles and images
 import '../App.css';
 import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
 
 
 class Home extends Component {
@@ -15,6 +15,8 @@ class Home extends Component {
       return <div className="container-inner">
         <LoginButton firebase={this.props.firebase}>Login</LoginButton>
       </div>
+      hashHistory.push('/profile')
+      console.log('logged in');
     } else {
       return <div>I have a user</div>
     }

@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 
+
+import LogoutButton from './LogoutButton'
+
 class Header extends Component {
 
   render() {
@@ -8,7 +11,7 @@ class Header extends Component {
       <div id="header">
         <ul>
           <div id="logo">
-            <img id="logo" src="/images/logo.png" />
+            <img id="logo" src="/images/logo 2.png" />
           </div>
 
           <li>
@@ -21,7 +24,7 @@ class Header extends Component {
           </li>
 
           <li>
-          <button><a href="#" onClick={this._handleLogout} id="logout-button" className="btn btn-default">Logout</a></button>
+            <LogoutButton firebase={this.props.firebase} />
           </li>
         </ul>
       </div>

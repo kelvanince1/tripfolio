@@ -7,9 +7,9 @@ class Header extends Component {
     return(
       <div id="header">
         <ul>
-          <li>
-            <img src="https://lh3.googleusercontent.com/Xi0W8qJuZorSXoHlgJJBeQ23H_t-7DgK0cAA-xNaFinDPrqbQy3hzMnfuOWH480a9ugW=s85" />
-          </li>
+          <div id="logo">
+            <img id="logo" src="/images/logo.png" />
+          </div>
 
           <li>
           <button><newTrips /><Link to="newTrip">My Trips</Link></button>

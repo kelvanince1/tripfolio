@@ -25,7 +25,7 @@ class NewTripModal extends Component {
     this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({destination});
 
 
-    hashHistory.push(`/planner/${newPostKey}/${destination}`);
+    hashHistory.push(`/planner/${uid}/${newPostKey}/${destination}`);
     //
     // // Pass the data up the chain to parent state
     // this.props._handleSubmit(destination);

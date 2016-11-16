@@ -21,8 +21,8 @@ ReactDOM.render(
     <Route path='/' component={App} firebase={firebase}>
       <IndexRoute component={Home}/>
       <Route path='/profile' component={Profile}/>
-      <Route path='/planner/:tripId' component={TripPlanningPage} onEnter={requireAuth}/>
-      <Route path='/newTrip' component={NewTripModal} onEnter={requireAuth}/>
+      <Route path='/planner/:tripId/:destination' component={TripPlanningPage}/>
+      <Route path='/newTrip' component={NewTripModal}/>
     </Route>
   </Router>,
   document.getElementById('root')

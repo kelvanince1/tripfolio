@@ -39,7 +39,7 @@ class Profile extends Component {
             <div className="row">
               <div className="profile">
                 <div id="profileInfo">
-                  <img src={this.props.user.providerData[0].photoURL} alt="Profile Picture" id="profPic" />
+                  <img src={"www.fakeURL.com"} alt="Profile Picture" id="profPic" />
                 </div>
                 <h2 id="where">Where would you like to go?</h2>
                 <h2 id="linkTrip"><Link to="/newTrip" id="newTripId">New Trip</Link></h2>

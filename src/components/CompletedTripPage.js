@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
+
+import UsersTile from './UsersTile';
 
 class CompletedTripPage extends Component {
   constructor(props) {
@@ -63,6 +66,15 @@ class CompletedTripPage extends Component {
     return(
       <main>
         {this._checkUser()}
+        <div>
+        {_.map(this.state.tiles, (tile, index) => {
+          let image = tile.tile["image_url"];
+          let name = tile.tile.name;
+          let url = tile.tile.url;
+
+          return <UsersTile index={index} key={index} image={image} name={name} />
+        })}
+        </div>
         <div id="eat"></div>
         <div id="drink"></div>
         <div id="see"></div>

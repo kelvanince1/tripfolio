@@ -19,8 +19,8 @@ import './index.css';
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path='/' component={App} firebase={firebase}>
-      <IndexRoute component={Home}/>
-      <Route path='/profile' component={Profile} />
+      <IndexRoute component={Home} firebase={firebase}/>
+      <Route path='/profile' component={Profile}/>
       <Route path='/planner/:tripId/:destination' component={TripPlanningPage}/>
       <Route path='/newTrip' component={NewTripModal}/>
     </Route>

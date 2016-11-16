@@ -1,8 +1,8 @@
 // Modules
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 import axios from 'axios';
 import _ from 'lodash';
+import { Link, hashHistory } from 'react-router';
 
 // Components
 import SuggestionBox from './SuggestionBox';
@@ -28,6 +28,7 @@ class TravelPlanningPage extends Component {
     this._removeYelpListing = this._removeYelpListing.bind(this);
     this._deleteTile = this._deleteTile.bind(this);
     this._showSavedModal = this._showSavedModal.bind(this);
+    this._routeToProfile = this._routeToProfile.bind(this);
   }
 
   _axiosCall(e) {
@@ -132,11 +133,16 @@ class TravelPlanningPage extends Component {
     this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}/places/${index}`).remove();
   }
 
+  _routeToProfile() {
+    this.props._loadUsersTrips(this.props.user);
+    hashHistory.pushState('/profile');
+  }
+
   render() {
     return(
       <main>
         <h2>My trip to <span id="destinationName"> {this.state.destination}</span></h2>
-        <nav>
+        <nav id="navYelpLinks">
           <a href="#"
             onClick={this._axiosCall}
             data-query="tourist%20attractions"
@@ -153,6 +159,11 @@ class TravelPlanningPage extends Component {
             data-query="hotels">
               Hotels
           </a>
+          <a href="#"
+            onClick={this._axiosCall}
+            data-query="bars">
+              Bars
+          </a>
         </nav>
         <div>
           <h4>My Saved Tiles</h4>
@@ -167,7 +178,9 @@ class TravelPlanningPage extends Component {
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
+
         <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
+
         <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>
     );

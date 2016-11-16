@@ -46,7 +46,7 @@ class App extends Component {
     let uid = user.uid;
     let firebase = this.props.route.firebase;
 
-    firebase.database().ref(`/tripbook/${uid}`).once('value').then(snapshot => {
+    firebase.database().ref(`/tripbook/${uid}`).on('value',snapshot => {
       let trips = snapshot.val();
 
       this.setState({ trips });
@@ -88,7 +88,8 @@ class App extends Component {
         destination: this.state.destination,
         firebase: this.props.route.firebase,
         trips: this.state.trips,
-        user: this.state.user
+        user: this.state.user,
+        _loadUsersTrips: this._loadUsersTrips
       })
     }
 

@@ -239,6 +239,10 @@ ul {
   top: -80px;
 }
 
+#navYelpLinks a {
+  margin: 0px 5px;
+}
+
 /*#header button {
   background-color: red;
   color: #fff;

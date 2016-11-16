@@ -12,17 +12,10 @@ class CompletedTripPage extends Component {
     this._renderMyTrip = this._renderMyTrip.bind(this);
   }
 
-  _test() {
-    let user = this.props.user;
-    let uid = this.prop.user.uid;
-    let displayName = this.props.user.providerData[0].displayName;
-
-  }
-
   _renderMyTrip() {
     return (
       <div className="pageHeader">
-        <h2>My trip to DESTINATION</h2>
+        <h2>My trip to {this.props.params.destination}</h2>
         <nav>
           {/* STRETCH: switch to make your trip public or private */}
           <button>Edit</button>
@@ -36,15 +29,34 @@ class CompletedTripPage extends Component {
     let currentUser = this.props.user.uid;
 
     // The 'owner' of the trip (aka the uid of the person who created it) will need to be passed when the component is rendered
-    let creator; // = this.props.owner;
+    let creator; // = this.props.params.uid;
 
-    if(true) {
+    if(true) { // Later will be if(currentUser === creator)
       return this._renderMyTrip();
     } /* Once functionality is added to see other people's trips, think of how to render
 
      else {
       this._renderTrip();
     } */
+  }
+
+  _test() {
+    let tripId = this.props.params.tripId;
+    let destination = this.props.params.destination;
+    let owner = this.props.params.uid; // <-- for now this will be current user until shareability is a thing
+  }
+
+  componentDidMount() {
+    let firebase = this.props.firebase;
+    let owner = this.props.params.uid;
+    let tripId = this.props.params.tripId;
+    let destination = this.props.params.destination;
+
+    firebase.database().ref(`/tripbook/${owner}/${tripId}`).once('value').then(snapshot => {
+      let tiles = snapshot.val().places;
+
+      this.setState({ tiles });
+    });
   }
 
   render() {
@@ -55,7 +67,6 @@ class CompletedTripPage extends Component {
         <div id="drink"></div>
         <div id="see"></div>
         <div id="sleep"></div>
-        <button onClick={this._test}>See user</button>
       </main>
     );
   }

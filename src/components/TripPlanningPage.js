@@ -103,7 +103,6 @@ class TravelPlanningPage extends Component {
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
       let tiles = snapshot.val().places;
-      console.log('tiles', tiles);
 
       this.setState({ tiles });
     });

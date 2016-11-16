@@ -5,7 +5,6 @@ import _ from 'lodash';
 
 // Components
 import SuggestionBox from './SuggestionBox';
-import SuggestionTile from './SuggestionTile';
 import TravelTileModal from './TravelTileModal';
 import UsersTile from './UsersTile';
 

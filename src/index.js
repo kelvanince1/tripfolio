@@ -1,7 +1,7 @@
 // Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import firebase from './utils/firebase';
 
 // Components
@@ -11,8 +11,8 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
 import NewTripModal from './components/NewTripModal';
-import TravelTileModal from './components/TravelTileModal';
-import Header from './components/Header';
+
+
 
 import './index.css';
 

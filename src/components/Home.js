@@ -1,12 +1,11 @@
 // Modules
 import React, {Component} from 'react';
-
 // Components
-import TravelTileModal from './TravelTileModal';
 
 // Styles and images
 
 import LoginButton from './LoginButton';
+
 
 class Home extends Component {
   render() {

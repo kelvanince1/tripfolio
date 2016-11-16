@@ -1,13 +1,9 @@
 // Modules
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { Link, IndexLink, hashHistory } from 'react-router';
 
 // Components
-import Home from './components/Home';
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
-import Header from './components/Header';
+
 
 // Styles and images
 import './App.css';
@@ -98,7 +94,6 @@ class App extends Component {
 
   return (
     <div>
-      <Header />
      {children}
     </div>
     );

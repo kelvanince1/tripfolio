@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 
 // Components
-import LogoutButton from './LogoutButton';
 import NewTripModal from './NewTripModal';
+import Header from './Header';
 // Styles and images
 
 class Profile extends Component {
@@ -35,6 +35,7 @@ class Profile extends Component {
     render() {
       return(
           <main className="container">
+            <Header />
             <div className="row">
               <div className="profile">
                 <div id="profileInfo">
@@ -50,7 +51,8 @@ class Profile extends Component {
                 </div>
               </div>
               </div>
-            </main>
+
+          </main>
         );
     }
 }

@@ -4,8 +4,9 @@ import _ from 'lodash';
 // Components
 
 // Styles and images
-
+import '../App.css';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 
 class Home extends Component {
@@ -15,9 +16,7 @@ class Home extends Component {
         <LoginButton firebase={this.props.firebase}>Login</LoginButton>
       </div>
     } else {
-      return <div>
-        Welcome back Joseph
-      </div>
+      return <div>I have a user</div>
     }
   }
 
@@ -25,12 +24,12 @@ class Home extends Component {
     return(
     <div>
       <div id="home-logo">
-        <img src="/images/logo.png" />
-        <h1>TripFolio</h1>
+        <h1>Your Next Trip Starts Here</h1>
+        <img src="/images/logo 2.png"/>
       </div>
-      <main id="main" className="container-fluid">
+      <div>
         {this._renderContent()}
-      </main>
+      </div>
     </div>
     );
   }

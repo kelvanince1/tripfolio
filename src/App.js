@@ -94,7 +94,7 @@ class App extends Component {
 
   return (
     <div>
-     {children}
+      {children}
     </div>
     );
   }

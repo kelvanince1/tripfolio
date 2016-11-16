@@ -5,7 +5,7 @@
 body {
   text-align: center;
   color: white;
-  background-image: url("../public/images/travel.jpeg");
+  background-image: url("../public/images/pretty2.jpg");
   background-size: cover;
 }
 
@@ -33,6 +33,11 @@ header {
 
 header div {
   display: inline-block;
+}
+
+h1{
+  font-size: 200px;
+
 }
 
 #row{
@@ -122,8 +127,15 @@ header div {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 60px;
   color: white;
+}
+
+#welcome{
+  text-align: right;
+  padding-right: 15px;
+  margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 ul {

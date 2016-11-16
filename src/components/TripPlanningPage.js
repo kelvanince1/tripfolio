@@ -17,9 +17,8 @@ class TravelPlanningPage extends Component {
     this.state = {
       results: [],
       modalClass: 'hidden',
-      destination: this.props.trips[this.props.params.tripId].destination
+      destination: this.props.params.destination
     }
-
     this._axiosCall = this._axiosCall.bind(this);
     this._closeModal = this._closeModal.bind(this);
     this._setActiveTab = this._setActiveTab.bind(this);
@@ -32,7 +31,7 @@ class TravelPlanningPage extends Component {
 
   _axiosCall(e) {
     let term;
-    let destination = this.props.trips[this.props.params.tripId].destination;
+    let destination = this.state.destination;
     let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}`;
 
     // If the call originated from user clicking a link (as opposed to from the component mounting), handle the event
@@ -169,7 +168,7 @@ class TravelPlanningPage extends Component {
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
         <button onClick={this.props._handleClick}>Save</button>
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.props.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>
     );
   }

@@ -20,8 +20,13 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path='/' component={App} firebase={firebase}>
       <IndexRoute component={Home}/>
+<<<<<<< HEAD
       <Route path='/profile' component={Profile}/>
       <Route path='/planner/:tripId' component={TripPlanningPage} onEnter={requireAuth}/>
+=======
+      <Route path='/profile' component={Profile} onEnter={requireAuth}/>
+      <Route path='/planner/:tripId/:destination' component={TripPlanningPage} onEnter={requireAuth}/>
+>>>>>>> 08ca4bfb707d3dc7930b14c2993451703a30f3ae
       <Route path='/newTrip' component={NewTripModal} onEnter={requireAuth}/>
     </Route>
   </Router>,

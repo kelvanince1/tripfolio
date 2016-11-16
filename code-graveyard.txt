@@ -67,3 +67,7 @@ class RouteMap extends Component {
     );
   }
 }
+
+Code to refresh feed of trips on profile page
+
+  <Link to="profile"><button onClick={this.props._routeToProfile}>Save</button></Link>

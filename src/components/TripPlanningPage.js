@@ -105,7 +105,6 @@ class TravelPlanningPage extends Component {
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
       let tiles = snapshot.val().places;
-      console.log('tiles', tiles);
 
       this.setState({ tiles });
     });
@@ -180,7 +179,7 @@ class TravelPlanningPage extends Component {
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
 
-        <Link to="profile"><button onClick={this.props._routeToProfile}>Save</button></Link>
+        <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
 
         <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
       </main>

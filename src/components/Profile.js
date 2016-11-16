@@ -24,7 +24,18 @@ class Profile extends Component {
         <ul>
           {_.map(this.props.trips, (trip, tripId) => {
             let destination = _.capitalize(trip.destination);
-            return <li key={tripId} data-tripId={tripId}><Link to={`/planner/${tripId}/${trip.destination}`}>My trip to {destination}</Link></li>
+            return (
+              <li key={tripId} data-tripId={tripId}>
+                My trip to {destination}
+                <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
+                  View
+                </Link>
+                <Link to={`/planner/${this.props.user.uid}/${tripId}/${trip.destination}`}>
+                  Edit
+                </Link>
+                <a href="#">Delete</a>
+              </li>
+            )
           })}
         </ul>
       )

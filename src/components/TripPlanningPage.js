@@ -17,7 +17,8 @@ class TravelPlanningPage extends Component {
 
     this.state = {
       results: [],
-      modalClass: 'hidden'
+      modalClass: 'hidden',
+      destination: this.props.trips[this.props.params.tripId].destination
     }
 
     this._axiosCall = this._axiosCall.bind(this);
@@ -32,7 +33,7 @@ class TravelPlanningPage extends Component {
 
   _axiosCall(e) {
     let term;
-    let destination = this.props.destination;
+    let destination = this.props.trips[this.props.params.tripId].destination;
     let link = `https://thawing-cliffs-39852.herokuapp.com/${destination}`;
 
     // If the call originated from user clicking a link (as opposed to from the component mounting), handle the event
@@ -136,7 +137,7 @@ class TravelPlanningPage extends Component {
   render() {
     return(
       <main>
-        <h2>My trip to <span id="destinationName">{this.props.destination}</span></h2>
+        <h2>My trip to <span id="destinationName"> {this.state.destination}</span></h2>
         <nav>
           <a href="#"
             onClick={this._axiosCall}

@@ -142,6 +142,8 @@ class TravelPlanningPage extends Component {
     hashHistory.pushState('/profile');
   }
 
+
+
   render() {
     return(
       <main>
@@ -155,7 +157,7 @@ class TravelPlanningPage extends Component {
           </a>
           <a href="#"
             onClick={this._axiosCall}
-            data-query="food">
+            data-query="restaurants">
               Food
           </a>
           <a href="#"
@@ -172,13 +174,15 @@ class TravelPlanningPage extends Component {
         <div>
           <h4>My Saved Tiles</h4>
           <div id="myTilesContainer">
+            <div>
             {_.map(this.state.tiles, (tile, index) => {
               let image = tile.tile["image_url"];
               let name = tile.tile.name;
               let url = tile.tile.url;
 
-              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='' />
+              return <UsersTile index={index} key={index} image={image} name={name} spanClass='' />
             })}
+            </div>
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />

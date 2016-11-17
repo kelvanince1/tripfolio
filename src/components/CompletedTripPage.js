@@ -14,6 +14,7 @@ class CompletedTripPage extends Component {
 
     this._test = this._test.bind(this);
     this._renderMyTrip = this._renderMyTrip.bind(this);
+    this.renderTiles = this._renderTiles.bind(this);
   }
 
   _renderMyTrip() {
@@ -67,23 +68,41 @@ class CompletedTripPage extends Component {
     });
   }
 
+  _renderTiles(query) {
+    let tileList = _.filter(this.state.tiles, (tile, index) => {
+      return tile.category === query;
+    });
+
+    return (_.map(tileList, (tile, index) => {
+        let image = tile.tile["image_url"];
+        let name = tile.tile.name;
+        let url = tile.tile.url;
+
+        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='hidden' />
+      })
+    );
+  }
+
   render() {
     return(
       <main>
         {this._checkUser()}
-        <div>
-        {_.map(this.state.tiles, (tile, index) => {
-          let image = tile.tile["image_url"];
-          let name = tile.tile.name;
-          let url = tile.tile.url;
-
-          return <UsersTile index={index} key={index} image={image} name={name} spanClass='hidden' />
-        })}
+        <div id="restaurantTiles">
+          <h4>Eat</h4>
+          {this._renderTiles('restaurants')}
         </div>
-        <div id="eat"></div>
-        <div id="drink"></div>
-        <div id="see"></div>
-        <div id="sleep"></div>
+        <div id="hotelTiles">
+          <h4>Sleep</h4>
+          {this._renderTiles('hotels')}
+        </div>
+        <div id="attractionTiles">
+          <h4>See</h4>
+          {this._renderTiles('tourist%20attractions')}
+        </div>
+        <div id="barTiles">
+          <h4>Drink</h4>
+          {this._renderTiles('bars')}
+        </div>
       </main>
     );
   }

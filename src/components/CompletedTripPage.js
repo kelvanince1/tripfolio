@@ -77,7 +77,7 @@ class CompletedTripPage extends Component {
           let name = tile.tile.name;
           let url = tile.tile.url;
 
-          return <UsersTile index={index} key={index} image={image} name={name} />
+          return <UsersTile index={index} key={index} image={image} name={name} spanClass='hidden' />
         })}
         </div>
         <div id="eat"></div>

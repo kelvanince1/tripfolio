@@ -11,11 +11,11 @@ class Header extends Component {
       <div id="header">
         <ul>
           <div id="logo">
-            <img id="logo" src="/images/logo 2.png" />
+            <Link to="profile"><img id="logo" src="/images/logo 2.png" /></Link>
           </div>
 
           <li>
-          <button><newTrips /><Link to="newTrip">My Trips</Link></button>
+          <button><newTrips /><Link to="newTrip">New Trip</Link></button>
           </li>
 
           <li>

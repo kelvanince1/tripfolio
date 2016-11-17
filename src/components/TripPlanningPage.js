@@ -171,9 +171,10 @@ class TravelPlanningPage extends Component {
             {_.map(this.state.tiles, (tile, index) => {
               let image = tile.tile["image_url"];
               let name = tile.tile.name;
+              let term = tile.tile.term;
               let url = tile.tile.url;
 
-              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} />
+              return <UsersTile index={index} key={index} image={image} name={name} term={term} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} />
             })}
           </div>
         </div>

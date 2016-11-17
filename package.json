@@ -2,6 +2,7 @@
   "name": "travel-planner",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://clrksanford.github.io/travel-planner",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
@@ -24,6 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

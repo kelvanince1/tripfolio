@@ -37,9 +37,7 @@ class Profile extends Component {
                 <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   View
                 </Link>
-                <Link to={`/planner/${this.props.user.uid}/${tripId}/${trip.destination}`}>
-                  Edit
-                </Link>
+                
                 <a href="#" onClick={(e) => {
                   e.preventDefault();
                   this._deleteTrip(tripId)
@@ -56,12 +54,14 @@ class Profile extends Component {
     render() {
       return(
           <main className="container">
-            <Header firebase={this.props.firebase} />
+            <Header />
             <div className="row">
               <div className="profile">
                 <div id="profileInfo">
                   <img src={"www.fakeURL.com"} alt="Profile Picture" id="profPic" />
                 </div>
+                <h2 id="where">Where would you like to go?</h2>
+                <h2 id="linkTrip"><Link to="/newTrip" id="newTripId">New Trip</Link></h2>
               </div>
               <div className="trips">
                 <div id="myTrips">

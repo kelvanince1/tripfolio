@@ -30,6 +30,7 @@ class UsersTile extends Component {
         <div>
           <img src={this.props.image} />
           <h6>{this.props.name}</h6>
+          <p>{this.props.term}</p>
         </div>
       </div>
     );

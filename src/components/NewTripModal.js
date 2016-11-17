@@ -38,7 +38,7 @@ class NewTripModal extends Component {
         <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link>
         <form onSubmit={this._handleSubmit}>
           <h4>Where do you want to go?</h4>
-          <input type="text" ref="destination" />
+          <input type="text" ref="destination" id="newTripSubmit"/>
           <input type="submit" value="Get Started!"/>
         </form>
       </main>

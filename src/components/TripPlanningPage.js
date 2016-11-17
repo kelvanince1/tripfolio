@@ -100,7 +100,7 @@ class TravelPlanningPage extends Component {
 
   _loadUsersTiles() {
     let firebase = this.props.firebase;
-    let uid = this.props.user.uid;
+    let uid = this.props.params.uid;
     let tripId = this.props.params.tripId;
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {

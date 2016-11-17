@@ -1,6 +1,7 @@
 // Modules
 import React, {Component} from 'react';
 import _ from 'lodash';
+import {Link} from 'react-router';
 
 // Components
 import SearchBar from './SearchBar';
@@ -31,7 +32,10 @@ class Destinations extends Component {
 
       array.forEach(tripObj => {
         for(var key in tripObj) {
-          arrayOfObjs.push(tripObj[key]);
+          let trip = tripObj[key];
+          trip.tripId = key;
+
+          arrayOfObjs.push(trip);
         }
       });
 
@@ -50,7 +54,13 @@ class Destinations extends Component {
         <div id="searchResults">
           <ul>
             {_.map(this.state.results, (result, index) => {
-              return <li key={index}>{result.username}'s trip to {result.destination}</li>
+              return (
+                <li key={index}>
+                  <Link to={`completed/${result.uid}/${result.tripId}/${result.destination}`}>
+                    {result.username}s trip to {result.destination}
+                  </Link>
+                </li>
+              );
             })}
           </ul>
         </div>

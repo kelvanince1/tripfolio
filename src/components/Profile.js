@@ -44,23 +44,25 @@ class Profile extends Component {
 
 
     render() {
+      let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
       return(
-          <main className="container">
+          <main>
             <Header firebase={this.props.firebase} />
-            <div className="row">
-              <div className="profile">
-                <div id="profileInfo">
-                  <img src={"www.fakeURL.com"} alt="Profile Picture" id="profPic" />
+            <div>
+              <div id="pic-div">
+                <div id="prof-pic">
+                  <img src={image} alt="Profile Picture" id="profPic" />
                 </div>
               </div>
               <div className="trips">
                 <div id="myTrips">
-                  <h2>My Trips</h2>
+                  <div id="myTripsHeader">
+                    <h2>My Trips</h2>
+                  </div>
                   {this._renderTrips()}
                 </div>
               </div>
               </div>
-
           </main>
         );
     }

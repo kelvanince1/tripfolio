@@ -4,31 +4,23 @@
 
 body {
   text-align: center;
-  color: white;
+  background-color: #000;
+  color: #000;
   background-image: url("../public/images/pretty2.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
-body:after {
-	content : "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0,0,0,0.4);
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-}
-
-header {
-  position: absolute;;
-  top: 0;
-  left: 0;
-  height: 15%;
+#nav-pills{
+  padding-right: 270px;
   width: 100%;
-  padding: 20px;
-  z-index: 1;
+
+}
+
+.nav.nav-pills{
+  position: absolute;
+  /*float: right;*/
+  display: inline;
 }
 
 header div {
@@ -45,7 +37,6 @@ h1{
 }
 
 .profile{
-  /*position: absolute;*/
 	top: 15%;
 	left: 0;
   height: 85%;
@@ -54,20 +45,16 @@ h1{
   padding-top: 12%;
 }
 
-.trips{
-  float:left;
-	top: 15%;
-	left: 0;
-  height: 85%;
-  width: 100%;
-	z-index: 1;
-  padding-top: 12%;
+#mytripsHeader{
+  background-color: #000;
+  margin-bottom: 20px;
 }
-
 
 #logo {
   position: absolute;
   left: 3%;
+  text-align: left;
+  margin-top: 18px;
 }
 
 #main{
@@ -86,6 +73,14 @@ h1{
   right: 10px;
   float: right;
 }
+
+#login-button{
+  padding: 15px 25px;
+  font-size: 18px;
+  background-color:rgba(0,0,0,0.5);
+  color: #fff;
+}
+
 
 #logout{
   display: inline-block;
@@ -126,11 +121,6 @@ h1{
   justify-content: space-between;
 }
 
-h1 {
-  font-size: 60px;
-  color: white;
-}
-
 #welcome{
   text-align: right;
   padding-right: 15px;
@@ -138,32 +128,55 @@ h1 {
   padding-top: 10px;
 }
 
-ul {
-  list-style-type: none;
-}
-
 #home-logo{
   text-align: center;
   display: block;
-  margin: 150px auto;
+  margin: 150px auto 60px auto;
   width: 100%;
 }
 
 /*---PROFILE STYLES---*/
 
-#logo{
-  text-align: left;
+
+
+li a{
+  padding: 5px;
+  padding-left: 5px
 }
+
+h2{
+  margin-bottom: 40px;
+  font-size: 50px;
+}
+
+ul {
+  font-size: 20px;
+  list-style-type: none;
+  line-height: 40px;
+}
+
+h1 {
+  font-size: 60px;
+  color: white;
+}
+
 #profPic {
+  float: right;
+  margin-right: 25px;
+  margin-top: -30px;
   width: 100px;
 	height: 100px;
-  position: relative;
-  right: -600px;
-  top: -140px;
   border-radius: 50px;
   -moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 }
+
+#prof-pic{
+  padding-top: 50px;
+  padding-bottom: 90px;
+  background-color: rgb(1, 171, 170);
+}
+
 
 /*---PLANNER STYLES---*/
 .active {
@@ -248,15 +261,15 @@ ul {
 
 .trips {
   position: relative;
-  top: -80px;
+  background-color: #fff;
+  padding: 80px;
+  margin-top: 125px;
+  margin-left: 415px;
+  width: 600px;
+  color: #000;
+  background-color:rgba(1, 171, 170,0.9);
 }
 
 #navYelpLinks a {
   margin: 0px 5px;
 }
-
-/*#header button {
-  background-color: red;
-  color: #fff;
-  border-radius: 4px;
-}*/

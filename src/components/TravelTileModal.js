@@ -29,15 +29,16 @@ class TravelTileModal extends Component {
   }
 
   render() {
-    let name, image, term;
+    let name, image, snippet_text;
 
     if(this.props.selectedTile) {
       name = this.props.selectedTile.name;
       image = this.props.selectedTile["image_url"];
-      term = this.props.selectedTile.term;
+      snippet_text = this.props.selectedTile.snippet_text;
     } else {
       name = "Placeholder Title";
-      image = "#"; 
+      image = "#";
+      snippet_text= "snippet_text";
     }
 
     return(
@@ -50,7 +51,7 @@ class TravelTileModal extends Component {
             <div id="modalContent">
               <h4>{name}</h4>
               <img src={image} />
-              <p>{term}</p>
+              <p>{snippet_text}</p>
             </div>
             <div id="modalFooter">
               <button onClick={this._addTile}>Add</button>

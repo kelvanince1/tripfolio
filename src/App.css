@@ -12,7 +12,7 @@ body {
 }
 
 #nav-pills{
-  padding-right: 210px;
+  padding-right: 205px;
   width: 100%;
 }
 
@@ -66,15 +66,36 @@ h1{
   text-align: center;
 }
 
+#profile-button-completed{
+  display: inline;
+  text-align: center;
+  margin-top: 1px;
+  right: 10px;
+  float: left;
+  margin-left: 472px;
+  background-color: #CBCBCB;
+  border-color: #FEA680;
+  border-width: 3px;
+  color: #337ab7;
+  font-size: 16px;
+}
+
 #profile-button{
   display: inline;
-  align: right;
+  text-align: center;
   margin-top: 1px;
-  margin-right: 2px;
-  position: absolute;
-  top: 0;
   right: 10px;
-  float: right;
+  float: left;
+  margin-left: 514px;
+  background-color: #CBCBCB;
+  border-color: #FEA680;
+  border-width: 3px;
+  color: #000;
+  font-size: 16px;
+}
+
+#completed-nav{
+  margin-left: 90px;
 }
 
 #login-button{
@@ -158,6 +179,8 @@ h1{
   margin: 150px auto 60px auto;
   width: 100%;
   padding-top: 25px;
+  background-size: contain;
+
 }
 
 /*---PROFILE STYLES---*/
@@ -212,7 +235,7 @@ h1 {
 
 /*---PLANNER STYLES---*/
 .active {
-  background-color: black;
+  background-color: #000;
 }
 
 /*---MODAL STYLES---*/
@@ -295,6 +318,12 @@ h1 {
   margin: 60px 40px;
 }
 
+#completed-background{
+  background-color: #fff;
+  position:fixed;
+  height: 100%;
+  width: 100%;
+}
 #prof-background{
   background-color: #fff;
 }
@@ -308,6 +337,10 @@ h1 {
   height: 400px;
   background-color:rgba(1, 171, 170,0.4);
   border-radius: 10px;
+  border-width: 6px;
+  border-color: #FEA680;
+
+
 }
 
 .trips {

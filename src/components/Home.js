@@ -25,13 +25,15 @@ class Home extends Component {
   render() {
     return(
     <div>
-      <div id="home-logo">
-        <h1>Your Next Trip Starts Here</h1>
-        <img src="/images/logo 2.png"/>
-      </div>
-      <div>
-        {this._renderContent()}
-      </div>
+      <div id="home-banner">
+        <div id="home-logo">
+          <h1>Your Next Trip Starts Here</h1>
+          <img id="logo-pic" src="/images/logo 2.png"/>
+        </div>
+        <div>
+          {this._renderContent()}
+        </div>
+      </div>  
     </div>
     );
   }

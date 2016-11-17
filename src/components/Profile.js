@@ -30,7 +30,7 @@ class Profile extends Component {
         return(
         <ul>
           {_.map(this.props.trips, (trip, tripId) => {
-            let destination = _.capitalize(trip.destination);
+            let destination = trip.destination;
             return (
               <li key={tripId} data-tripId={tripId}>
                 My trip to {destination}

@@ -13,9 +13,10 @@ class CompletedTripPage extends Component {
       ownerDispName: ''
     }
 
-    this._test = this._test.bind(this);
+    this._checkUser = this._checkUser.bind(this);
     this._renderMyTrip = this._renderMyTrip.bind(this);
-    this.renderTiles = this._renderTiles.bind(this);
+    this._renderOtherUsersTrip = this._renderOtherUsersTrip.bind(this);
+    this._renderTiles = this._renderTiles.bind(this);
     this._deleteTrip = this._deleteTrip.bind(this);
   }
 
@@ -25,7 +26,26 @@ class CompletedTripPage extends Component {
     this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}`).remove();
   }
 
+  _checkUser() {
+    let currentUser = this.props.user.uid;
+
+    console.log('current user', currentUser);
+
+    // The 'owner' of the trip (aka the uid of the person who created it) will need to be passed when the component is rendered
+    let creator = this.props.params.uid;
+
+    console.log('creator', creator);
+
+    if(currentUser === creator) { // Later will be if(currentUser === creator)
+      return this._renderMyTrip();
+    } // Once functionality is added to see other people's trips, think of how to render
+     else {
+      return this._renderOtherUsersTrip();
+    }
+  }
+
   _renderMyTrip() {
+    console.log('rendering my trip');
     let owner = this.props.params.uid;
     let tripId = this.props.params.tripId;
     let destination = this.props.params.destination;
@@ -44,24 +64,20 @@ class CompletedTripPage extends Component {
     )
   }
 
-  _checkUser() {
-    let currentUser = this.props.user.uid;
-
-    // The 'owner' of the trip (aka the uid of the person who created it) will need to be passed when the component is rendered
-    let creator; // = this.props.params.uid;
-
-    if(true) { // Later will be if(currentUser === creator)
-      return this._renderMyTrip();
-    } /* Once functionality is added to see other people's trips, think of how to render
-     else {
-      this._renderTrip();
-    } */
-  }
-
-  _test() {
+  _renderOtherUsersTrip() {
+    console.log('rendering someone elses trip');
+    let username = this.state.username;
     let tripId = this.props.params.tripId;
     let destination = this.props.params.destination;
-    let owner = this.props.params.uid; // <-- for now this will be current user until shareability is a thing
+
+    return (
+      <div className="pageHeader">
+        <h2>{username}s trip to {destination}</h2>
+        <nav>
+          {/* options to "add to your saved trips" and "like" will be added later */}
+        </nav>
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -72,8 +88,9 @@ class CompletedTripPage extends Component {
 
     firebase.database().ref(`/tripbook/${owner}/${tripId}`).once('value').then(snapshot => {
       let tiles = snapshot.val().places;
+      let username = snapshot.val().username;
 
-      this.setState({ tiles });
+      this.setState({ tiles, username });
     });
   }
 

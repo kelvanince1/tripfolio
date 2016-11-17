@@ -35,7 +35,7 @@ class Profile extends Component {
                 </div>
               </div>
               <div>
-                <NewTripModal firebase={this.props.firebase} user={this.props.user}/>
+                <NewTripModal user={this.props.user} firebase={this.props.firebase} />
               </div>
               <div className="trips">
                 <div id="myTrips">

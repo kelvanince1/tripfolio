@@ -12,7 +12,14 @@ class Profile extends Component {
     constructor(props) {
       super(props);
 
+      this._deleteTrip = this._deleteTrip.bind(this);
       this._renderTrips = this._renderTrips.bind(this);
+    }
+
+    _deleteTrip(tripId) {
+      let uid = this.props.user.uid;
+
+      this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}`).remove();
     }
 
     _renderTrips() {
@@ -33,7 +40,10 @@ class Profile extends Component {
                 <Link to={`/planner/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   Edit
                 </Link>
-                <a href="#">Delete</a>
+                <a href="#" onClick={(e) => {
+                  e.preventDefault();
+                  this._deleteTrip(tripId)
+                }}>Delete</a>
               </li>
             )
           })}

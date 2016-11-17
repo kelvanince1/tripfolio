@@ -42,18 +42,18 @@ class TravelPlanningPage extends Component {
 
       this._setActiveTab(e);
 
-      // Get the search term from the clicked tab
+      // If the user has clicked a filter tab, get the term they are searching for and send a corresponding request to Yelp
       term = e.target.getAttribute("data-query");;
-    }
 
-    // If the user has clicked a filter tab, get the term they are searching for and send a corresponding request to Yelp
-    if(term) {
-      link += `/${term}`;
     } else {
-    // By default, load results for tourist attractions
-
-      link += "/tourist%20attractions";
+      // By default, load results for tourist attractions
+      term = "tourist%20attractions";
     }
+
+    // Set term to state to access in database
+    this.setState({ term });
+
+    link += `/${term}`;
 
     axios.get(link)
       .then((response) => {
@@ -104,7 +104,11 @@ class TravelPlanningPage extends Component {
     let tripId = this.props.params.tripId;
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
-      let tiles = snapshot.val().places;
+      let tiles;
+
+      if(snapshot.val()) {
+        tiles = snapshot.val().places;
+      }
 
       this.setState({ tiles });
     });
@@ -181,7 +185,7 @@ class TravelPlanningPage extends Component {
 
         <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
 
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing} category={this.state.term}/>
       </main>
     );
   }

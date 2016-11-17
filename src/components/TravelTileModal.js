@@ -14,9 +14,11 @@ class TravelTileModal extends Component {
     let tripId = this.props.tripId;
     let destination = this.props.destination;
     let tile = this.props.selectedTile;
+    let category = this.props.category;
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}/places`).push({
-      tile
+      tile,
+      category
     }).then(() => {
       // Delete the original yelp listing from results so that it does not render on the page
 

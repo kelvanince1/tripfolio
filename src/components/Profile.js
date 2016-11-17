@@ -37,9 +37,7 @@ class Profile extends Component {
                 <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   View
                 </Link>
-                <Link to={`/planner/${this.props.user.uid}/${tripId}/${trip.destination}`}>
-                  Edit
-                </Link>
+                
                 <a href="#" onClick={(e) => {
                   e.preventDefault();
                   this._deleteTrip(tripId)

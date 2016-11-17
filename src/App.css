@@ -255,6 +255,10 @@ ul {
   margin: 0px 5px;
 }
 
+#newTripSubmit {
+  color: navy;
+}
+
 /*#header button {
   background-color: red;
   color: #fff;

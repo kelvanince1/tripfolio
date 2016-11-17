@@ -21,9 +21,15 @@ class NewTripModal extends Component {
     let destination = _.startCase(this.refs.destination.value);
 
     let uid = this.props.user.uid;
+    let username = this.props.user.email.split('@')[0];
 
     var newPostKey = this.props.firebase.database().ref().child(uid).push().key;
-    this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({destination});
+    this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({
+      destination,
+      uid,
+      username,
+      public: false
+    });
 
 
     hashHistory.push(`/planner/${uid}/${newPostKey}/${destination}`);

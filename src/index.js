@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
 import NewTripModal from './components/NewTripModal';
 import CompletedTripPage from './components/CompletedTripPage';
+import Destinations from './components/Destinations';
 
 import './index.css';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path='/profile' component={Profile}/>
       <Route path='/planner/:uid/:tripId/:destination' component={TripPlanningPage}/>
       <Route path='/newTrip' component={NewTripModal}/>
+      <Route path='/destinations' component={Destinations}/>
       <Route path='/completed/:uid/:tripId/:destination' component={CompletedTripPage}/>
     </Route>
   </Router>,

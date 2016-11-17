@@ -11,9 +11,9 @@ class Header extends Component {
       <div>
         <div id="nav-pills">
         <ul className="nav nav-pills">
-          <li role="presentation">
+          {/* <li role="presentation">
           <button id="nav-buttons" className="btn btn-default"><newTrips /><Link to="newTrip">My Trips</Link></button>
-          </li>
+          </li> */}
           <li role="presentation">
             <button id="nav-buttons" className="btn btn-default"><container />
             <Link to="SuggestionBox">Destinations</Link></button>

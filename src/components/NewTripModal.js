@@ -40,7 +40,7 @@ class NewTripModal extends Component {
         <form onSubmit={this._handleSubmit}>
           <h2>Where Do You Want To Go?</h2>
           <br/>
-          <input type="text" ref="destination" id="newTripSubmit"/>
+          <input type="text" ref="destination" id="newTripSubmit" placeholder="Enter City Here"/>
           <input id="newTripButton" className="btn btn-default" type="submit" value="Get Started!"/>
         </form>
       </main>

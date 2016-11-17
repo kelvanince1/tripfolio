@@ -18,7 +18,7 @@ class NewTripModal extends Component {
     e.preventDefault();
 
     // Grab user info
-    let destination = _.capitalize(this.refs.destination.value);
+    let destination = _.startCase(this.refs.destination.value);
 
     let uid = this.props.user.uid;
 

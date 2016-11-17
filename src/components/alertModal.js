@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 class AlertModal extends Component {
 
-
-
-
-
-
-
   render() {
     let name, image, snippet_text;
 

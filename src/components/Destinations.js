@@ -50,7 +50,7 @@ class Destinations extends Component {
         <div id="searchResults">
           <ul>
             {_.map(this.state.results, (result, index) => {
-              return <li key={index}>USERNAME trip to {result.destination}</li>
+              return <li key={index}>{result.username}'s trip to {result.destination}</li>
             })}
           </ul>
         </div>

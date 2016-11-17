@@ -48,11 +48,24 @@ class Destinations extends Component {
   }
 
   render() {
+    let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <main>
+      <main id="main">
+        <div id="logo-div">
+          <img id="logo" src="/images/logo 2.png" />
+        </div>
+        <Link to="/profile" id="profile-button-search" className="btn btn-default">My profile</Link>
+        <div id="pic-div">
+          <div id="prof-pic">
+            <img src={image} alt="Profile Picture" id="profPic" />
+          </div>
+        </div>
+        <h2>Search Users Trips</h2>
         <SearchBar _handleSubmit={this._handleSubmit} />
-        <div id="searchResults">
-          <ul>
+      <br/>
+      <br/>
+        <div>
+          <ul id="searchResults">
             {_.map(this.state.results, (result, index) => {
               return (
                 <li key={index}>

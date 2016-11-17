@@ -113,7 +113,7 @@ class CompletedTripPage extends Component {
     let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
       <div id="completed-background">
-        <main>
+        <main id="main">
           <div id="completed-nav">
             <Header firebase={this.props.firebase} />
             <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>

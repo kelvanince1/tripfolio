@@ -19,6 +19,7 @@ class Home extends Component {
       console.log('logged in');
     } else {
       return <div>I have a user</div>
+      console.log('Check your code fuckface!');
     }
   }
 

@@ -23,7 +23,8 @@ class NewTripModal extends Component {
     let uid = this.props.user.uid;
 
     var newPostKey = this.props.firebase.database().ref().child(uid).push().key;
-    this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({destination});
+    this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({destination,
+    public: false});
 
 
     hashHistory.push(`/planner/${uid}/${newPostKey}/${destination}`);
@@ -39,7 +40,8 @@ class NewTripModal extends Component {
         <form onSubmit={this._handleSubmit}>
           <h4>Where do you want to go?</h4>
           <input type="text" ref="destination" id="newTripSubmit"/>
-          <input type="submit" value="Get Started!"/>
+          <input type="submit" value="Save Publicly"/>
+          <input type="submit" value="Save Privately"/>
         </form>
       </main>
     );

@@ -37,14 +37,12 @@ class Profile extends Component {
                 <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   View
                 </Link>
-<<<<<<< HEAD
-=======
 
                 <a href="#" onClick={(e) => {
                   e.preventDefault();
                   this._deleteTrip(tripId)
                 }}>Delete</a>
->>>>>>> e95eea6b40c48a47da5296d33fe32e293c240dd9
+
               </li>
             )
           })}
@@ -63,7 +61,7 @@ class Profile extends Component {
               <div id="pic-div">
                 <div id="prof-pic">
                   <img src={image} alt="Profile Picture" id="profPic" />
-                </div>  
+                </div>
               </div>
               <div className="trips">
                 <div id="myTrips">

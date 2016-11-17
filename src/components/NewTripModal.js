@@ -36,12 +36,12 @@ class NewTripModal extends Component {
   render() {
     return(
       <main id="newTrips">
-        <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link>
+        {/* <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link> */}
         <form onSubmit={this._handleSubmit}>
-          <h4>Where do you want to go?</h4>
+          <h2>Where Do You Want To Go?</h2>
+          <br/>
           <input type="text" ref="destination" id="newTripSubmit"/>
-          <input type="submit" value="Save Publicly"/>
-          <input type="submit" value="Save Privately"/>
+          <input id="newTripButton" className="btn btn-default" type="submit" value="Get Started!"/>
         </form>
       </main>
     );

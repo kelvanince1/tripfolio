@@ -12,10 +12,10 @@ class Header extends Component {
         <div id="nav-pills">
         <ul className="nav nav-pills">
           <li role="presentation">
-          <button className="btn btn-default"><newTrips /><Link to="newTrip">My Trips</Link></button>
+          <button id="nav-buttons" className="btn btn-default"><newTrips /><Link to="newTrip">My Trips</Link></button>
           </li>
           <li role="presentation">
-            <button className="btn btn-default"><container />
+            <button id="nav-buttons" className="btn btn-default"><container />
             <Link to="SuggestionBox">Destinations</Link></button>
           </li>
           <li role="presentation">

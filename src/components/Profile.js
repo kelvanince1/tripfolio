@@ -55,6 +55,7 @@ class Profile extends Component {
     render() {
       let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
       return(
+        <div id="prof-background">
           <main>
             <Header firebase={this.props.firebase} />
             <div>
@@ -62,6 +63,9 @@ class Profile extends Component {
                 <div id="prof-pic">
                   <img src={image} alt="Profile Picture" id="profPic" />
                 </div>
+              </div>
+              <div>
+                <NewTripModal />
               </div>
               <div className="trips">
                 <div id="myTrips">
@@ -73,6 +77,7 @@ class Profile extends Component {
               </div>
               </div>
           </main>
+        </div>
         );
     }
 }

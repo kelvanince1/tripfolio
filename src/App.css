@@ -94,6 +94,27 @@ h1{
   float: right;
 }
 
+#newTripSubmit{
+  border-style: solid;
+  border-color: #000;
+}
+
+#newTripButton{
+  margin-left: 10px;
+  background-color: #CBCBCB;
+  border-color: #FEA680;
+  border-width: 3px;
+  font-size: 16px;
+}
+
+#logout-button.btn.btn-default{
+  background-color: #CBCBCB;
+  border-color: #FEA680;
+  border-width: 3px;
+  color: #337ab7;
+  font-size: 16px;
+}
+
 #logout-button.btn.btn-default:hover {
   background-color: red;
   color: #fff;
@@ -137,6 +158,13 @@ h1{
 
 /*---PROFILE STYLES---*/
 
+#nav-buttons{
+  background-color: #CBCBCB;
+  border-color: #FEA680;
+  border-width: 3px;
+  color: #000;
+  font-size: 16px;
+}
 
 
 li a{
@@ -259,15 +287,24 @@ h1 {
   top: -100px;
 }
 
+#newTrips{
+  margin: 60px 40px;
+}
+
+#prof-background{
+  background-color: #fff;
+}
+
 .trips {
   position: relative;
   background-color: #fff;
   padding: 80px;
-  margin-top: 125px;
+  margin-top: 80px;
   margin-left: 415px;
   width: 600px;
   color: #000;
   background-color:rgba(1, 171, 170,0.9);
+  border-radius: 10px;
 }
 
 #navYelpLinks a {

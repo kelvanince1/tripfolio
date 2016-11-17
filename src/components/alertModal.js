@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class AlertModal extends Component {
+  constructor(props) {
+    super(props);
+    this._deleteTrip = this._deleteTrip.bind(this);
+  }
+
+  _deleteTrip() {
+    let uid = this.props.uid;
+    let tripId = this.props.tripId;
+
+    this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}`).remove();
+  }
 
   render() {
-    let name, image, snippet_text;
-
-    if(this.props.selectedTile) {
-      name = this.props.selectedTile.name;
-      image = this.props.selectedTile["image_url"];
-      snippet_text = this.props.selectedTile.snippet_text;
-    } else {
-      name = "Placeholder Title";
-      image = "#";
-      snippet_text= "snippet_text";
-    }
-
     return(
       <div>
         <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
@@ -23,12 +23,11 @@ class AlertModal extends Component {
               <span id="closeModal" onClick={this.props._closeModal}>x</span>
             </div>
             <div id="modalContent">
-              <h4>{name}</h4>
-              <img src={image} />
-              <p>{snippet_text}</p>
+              <h4>{this.props.modalTitle}</h4>
+              <p>{this.props.modalMessage}</p>
             </div>
             <div id="modalFooter">
-              <button onClick={this._addTile}>Add</button>
+            <Link to="/Profile" className={this.props.buttonClass} onClick={this._deleteTrip}>Delete</Link>
             </div>
           </div>
         </div>

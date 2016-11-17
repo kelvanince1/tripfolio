@@ -31,6 +31,7 @@ class Profile extends Component {
               <div id="pic-div">
                 <div id="prof-pic">
                   <img src={image} alt="Profile Picture" id="profPic" />
+
                 </div>
               </div>
               <div>
@@ -50,18 +51,13 @@ class Profile extends Component {
                           <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                             View
                           </Link>
-
-                          <a href="#" onClick={(e) => {
-                            e.preventDefault();
-                            this._deleteTrip(tripId)
-                          }}>Delete</a>
                         </li>
                       )
                     })}
                   </ul>
                 </div>
               </div>
-              </div>
+            </div>
           </main>
         </div>
         );

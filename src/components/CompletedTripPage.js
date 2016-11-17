@@ -101,27 +101,41 @@ class CompletedTripPage extends Component {
             <Header firebase={this.props.firebase} />
             <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
           </div>
-            <div id="pic-div">
-              <div id="prof-pic">
-                <img src={image} alt="Profile Picture" id="profPic" />
+          <div id="pic-div">
+            <div id="prof-pic">
+              <img src={image} alt="Profile Picture" id="profPic" />
+            </div>
+          </div>
+          {this._checkUser()}
+            <div id="edit-trip" className="container">
+              <div className="row">
+                <div className="col-sm-6">
+                  <div id="restaurantTiles">
+                    <h4>Eat</h4>
+                    {this._renderTiles('restaurants')}
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div id="hotelTiles">
+                    <h4>Sleep</h4>
+                    {this._renderTiles('hotels')}
+                  </div>
+                </div>
               </div>
-            </div>
-            {this._checkUser()}
-            <div id="restaurantTiles">
-              <h4>Eat</h4>
-              {this._renderTiles('restaurants')}
-            </div>
-            <div id="hotelTiles">
-              <h4>Sleep</h4>
-              {this._renderTiles('hotels')}
-            </div>
-            <div id="attractionTiles">
-              <h4>See</h4>
-              {this._renderTiles('tourist%20attractions')}
-            </div>
-            <div id="barTiles">
-              <h4>Drink</h4>
-              {this._renderTiles('bars')}
+              <div className="row">
+                <div className="col-sm-6">
+                  <div id="attractionTiles">
+                    <h4>See</h4>
+                    {this._renderTiles('tourist%20attractions')}
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div id="barTiles">
+                    <h4>Drink</h4>
+                    {this._renderTiles('bars')}
+                  </div>
+                </div>
+              </div>
             </div>
         </main>
       </div>

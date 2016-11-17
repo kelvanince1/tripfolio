@@ -37,7 +37,7 @@ class Profile extends Component {
                 <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   View
                 </Link>
-                
+
                 <a href="#" onClick={(e) => {
                   e.preventDefault();
                   this._deleteTrip(tripId)
@@ -52,25 +52,25 @@ class Profile extends Component {
 
 
     render() {
+      let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
       return(
-          <main className="container">
-            <Header />
-            <div className="row">
-              <div className="profile">
-                <div id="profileInfo">
-                  <img src={"www.fakeURL.com"} alt="Profile Picture" id="profPic" />
-                </div>
-                <h2 id="where">Where would you like to go?</h2>
-                <h2 id="linkTrip"><Link to="/newTrip" id="newTripId">New Trip</Link></h2>
+          <main>
+            <Header firebase={this.props.firebase} />
+            <div>
+              <div id="pic-div">
+                <div id="prof-pic">
+                  <img src={image} alt="Profile Picture" id="profPic" />
+                </div>  
               </div>
               <div className="trips">
                 <div id="myTrips">
-                  <h2>My Trips</h2>
+                  <div id="myTripsHeader">
+                    <h2>My Trips</h2>
+                  </div>
                   {this._renderTrips()}
                 </div>
               </div>
               </div>
-
           </main>
         );
     }

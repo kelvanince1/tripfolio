@@ -20,7 +20,7 @@ _handleClick(e){
   render(){
     return(
       <div>
-        <button onClick={this._handleClick} className="btn btn-default">
+        <button onClick={this._handleClick} id="login-button" className="btn btn-default">
         {this.props.children}</button>
       </div>
     )

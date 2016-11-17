@@ -21,6 +21,7 @@ class Home extends Component {
 
     } else {
       return <div>I have a user</div>
+      console.log('Check your code fuckface!');
     }
   }
 

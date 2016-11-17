@@ -4,13 +4,15 @@ import _ from 'lodash';
 
 import UsersTile from './UsersTile';
 import Header from './Header';
+import AlertModal from './AlertModal';
 
 class CompletedTripPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ownerDispName: ''
+      ownerDispName: '',
+      alertModalClass: 'hidden'
     }
 
     this._checkUser = this._checkUser.bind(this);
@@ -18,6 +20,7 @@ class CompletedTripPage extends Component {
     this._renderOtherUsersTrip = this._renderOtherUsersTrip.bind(this);
     this._renderTiles = this._renderTiles.bind(this);
     this._deleteTrip = this._deleteTrip.bind(this);
+    this._showModal = this._showModal.bind(this);
   }
 
   _deleteTrip(tripId) {
@@ -56,9 +59,7 @@ class CompletedTripPage extends Component {
         <nav>
           {/* STRETCH: switch to make your trip public or private */}
           <Link to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link>
-          <Link to="/Profile" onClick={() => {
-            this._deleteTrip(tripId)
-          }}>Delete</Link>
+          <a href="#" onClick={this._showModal}>Delete</a>
         </nav>
       </div>
     )
@@ -109,6 +110,12 @@ class CompletedTripPage extends Component {
     );
   }
 
+  _showModal(e) {
+    e.preventDefault();
+
+    this.setState({alertModalClass:''});
+  }
+
   render() {
     let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
@@ -154,6 +161,7 @@ class CompletedTripPage extends Component {
                 </div>
               </div>
             </div>
+            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forevor!" buttonClass=""/>
         </main>
       </div>
     );

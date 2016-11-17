@@ -34,7 +34,7 @@ class Home extends Component {
         <div>
           {this._renderContent()}
         </div>
-      </div>  
+      </div>
     </div>
     );
   }

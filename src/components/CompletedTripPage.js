@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 
 import UsersTile from './UsersTile';
+import Header from './Header';
 
 class CompletedTripPage extends Component {
   constructor(props) {
@@ -30,8 +31,8 @@ class CompletedTripPage extends Component {
     let destination = this.props.params.destination;
 
     return (
-      <div className="pageHeader">
-        <h2>My trip to {this.props.params.destination}</h2>
+      <div id="newTrips" >
+        <h2>My Trip To {this.props.params.destination}</h2>
         <nav>
           {/* STRETCH: switch to make your trip public or private */}
           <Link to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link>
@@ -92,26 +93,38 @@ class CompletedTripPage extends Component {
   }
 
   render() {
+    let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <main>
-        {this._checkUser()}
-        <div id="restaurantTiles">
-          <h4>Eat</h4>
-          {this._renderTiles('restaurants')}
-        </div>
-        <div id="hotelTiles">
-          <h4>Sleep</h4>
-          {this._renderTiles('hotels')}
-        </div>
-        <div id="attractionTiles">
-          <h4>See</h4>
-          {this._renderTiles('tourist%20attractions')}
-        </div>
-        <div id="barTiles">
-          <h4>Drink</h4>
-          {this._renderTiles('bars')}
-        </div>
-      </main>
+      <div id="completed-background">
+        <main>
+          <div id="completed-nav">
+            <Header firebase={this.props.firebase} />
+            <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
+          </div>
+            <div id="pic-div">
+              <div id="prof-pic">
+                <img src={image} alt="Profile Picture" id="profPic" />
+              </div>
+            </div>
+            {this._checkUser()}
+            <div id="restaurantTiles">
+              <h4>Eat</h4>
+              {this._renderTiles('restaurants')}
+            </div>
+            <div id="hotelTiles">
+              <h4>Sleep</h4>
+              {this._renderTiles('hotels')}
+            </div>
+            <div id="attractionTiles">
+              <h4>See</h4>
+              {this._renderTiles('tourist%20attractions')}
+            </div>
+            <div id="barTiles">
+              <h4>Drink</h4>
+              {this._renderTiles('bars')}
+            </div>
+        </main>
+      </div>
     );
   }
 }

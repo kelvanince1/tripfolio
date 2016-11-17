@@ -14,6 +14,14 @@ class CompletedTripPage extends Component {
 
     this._test = this._test.bind(this);
     this._renderMyTrip = this._renderMyTrip.bind(this);
+    this.renderTiles = this._renderTiles.bind(this);
+    this._deleteTrip = this._deleteTrip.bind(this);
+  }
+
+  _deleteTrip(tripId) {
+    let uid = this.props.user.uid;
+
+    this.props.firebase.database().ref(`/tripbook/${uid}/${tripId}`).remove();
   }
 
   _renderMyTrip() {
@@ -27,7 +35,9 @@ class CompletedTripPage extends Component {
         <nav>
           {/* STRETCH: switch to make your trip public or private */}
           <Link to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link>
-          <input type="text" placeholder="Search your trips" ref="searchBar" />
+          <Link to="/Profile" onClick={() => {
+            this._deleteTrip(tripId)
+          }}>Delete</Link>
         </nav>
       </div>
     )
@@ -42,7 +52,6 @@ class CompletedTripPage extends Component {
     if(true) { // Later will be if(currentUser === creator)
       return this._renderMyTrip();
     } /* Once functionality is added to see other people's trips, think of how to render
-
      else {
       this._renderTrip();
     } */
@@ -67,23 +76,41 @@ class CompletedTripPage extends Component {
     });
   }
 
+  _renderTiles(query) {
+    let tileList = _.filter(this.state.tiles, (tile, index) => {
+      return tile.category === query;
+    });
+
+    return (_.map(tileList, (tile, index) => {
+        let image = tile.tile["image_url"];
+        let name = tile.tile.name;
+        let url = tile.tile.url;
+
+        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='hidden' />
+      })
+    );
+  }
+
   render() {
     return(
       <main>
         {this._checkUser()}
-        <div>
-        {_.map(this.state.tiles, (tile, index) => {
-          let image = tile.tile["image_url"];
-          let name = tile.tile.name;
-          let url = tile.tile.url;
-
-          return <UsersTile index={index} key={index} image={image} name={name} />
-        })}
+        <div id="restaurantTiles">
+          <h4>Eat</h4>
+          {this._renderTiles('restaurants')}
         </div>
-        <div id="eat"></div>
-        <div id="drink"></div>
-        <div id="see"></div>
-        <div id="sleep"></div>
+        <div id="hotelTiles">
+          <h4>Sleep</h4>
+          {this._renderTiles('hotels')}
+        </div>
+        <div id="attractionTiles">
+          <h4>See</h4>
+          {this._renderTiles('tourist%20attractions')}
+        </div>
+        <div id="barTiles">
+          <h4>Drink</h4>
+          {this._renderTiles('bars')}
+        </div>
       </main>
     );
   }

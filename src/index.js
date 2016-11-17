@@ -20,7 +20,7 @@ ReactDOM.render(
     <Route path='/' component={App} firebase={firebase}>
       <IndexRoute component={Home} firebase={firebase}/>
       <Route path='/profile' component={Profile}/>
-      <Route path='/planner/:tripId/:destination' component={TripPlanningPage}/>
+      <Route path='/planner/:uid/:tripId/:destination' component={TripPlanningPage}/>
       <Route path='/newTrip' component={NewTripModal}/>
       <Route path='/completed/:uid/:tripId/:destination' component={CompletedTripPage}/>
     </Route>

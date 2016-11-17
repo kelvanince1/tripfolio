@@ -14,12 +14,10 @@ class Header extends Component {
           <li role="presentation">
           <button className="btn btn-default"><newTrips /><Link to="newTrip">My Trips</Link></button>
           </li>
-
           <li role="presentation">
             <button className="btn btn-default"><container />
             <Link to="SuggestionBox">Destinations</Link></button>
           </li>
-
           <li role="presentation">
             <LogoutButton firebase={this.props.firebase} />
           </li>

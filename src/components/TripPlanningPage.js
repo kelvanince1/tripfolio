@@ -42,18 +42,18 @@ class TravelPlanningPage extends Component {
 
       this._setActiveTab(e);
 
-      // Get the search term from the clicked tab
+      // If the user has clicked a filter tab, get the term they are searching for and send a corresponding request to Yelp
       term = e.target.getAttribute("data-query");;
-    }
 
-    // If the user has clicked a filter tab, get the term they are searching for and send a corresponding request to Yelp
-    if(term) {
-      link += `/${term}`;
     } else {
-    // By default, load results for tourist attractions
-
-      link += "/tourist%20attractions";
+      // By default, load results for tourist attractions
+      term = "tourist%20attractions";
     }
+
+    // Set term to state to access in database
+    this.setState({ term });
+
+    link += `/${term}`;
 
     axios.get(link)
       .then((response) => {
@@ -100,11 +100,15 @@ class TravelPlanningPage extends Component {
 
   _loadUsersTiles() {
     let firebase = this.props.firebase;
-    let uid = this.props.user.uid;
+    let uid = this.props.params.uid;
     let tripId = this.props.params.tripId;
 
     firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
-      let tiles = snapshot.val().places;
+      let tiles;
+
+      if(snapshot.val()) {
+        tiles = snapshot.val().places;
+      }
 
       this.setState({ tiles });
     });
@@ -138,6 +142,8 @@ class TravelPlanningPage extends Component {
     hashHistory.pushState('/profile');
   }
 
+
+
   render() {
     return(
       <main>
@@ -151,7 +157,7 @@ class TravelPlanningPage extends Component {
           </a>
           <a href="#"
             onClick={this._axiosCall}
-            data-query="food">
+            data-query="restaurants">
               Food
           </a>
           <a href="#"
@@ -168,20 +174,23 @@ class TravelPlanningPage extends Component {
         <div>
           <h4>My Saved Tiles</h4>
           <div id="myTilesContainer">
+            <div>
             {_.map(this.state.tiles, (tile, index) => {
               let image = tile.tile["image_url"];
               let name = tile.tile.name;
+              let snippet_text = tile.tile.snippet_text;
               let url = tile.tile.url;
 
-              return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} />
+              return <UsersTile index={index} key={index} image={image} name={name} snippet_text={snippet_text} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='' />
             })}
+            </div>
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
 
         <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
 
-        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing}/>
+        <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing} category={this.state.term}/>
       </main>
     );
   }

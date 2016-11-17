@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import TripPlanningPage from './components/TripPlanningPage';
 import NewTripModal from './components/NewTripModal';
 import CompletedTripPage from './components/CompletedTripPage';
+import SearchTest from './components/SearchTest';
 
 import './index.css';
 

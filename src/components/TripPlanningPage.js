@@ -142,8 +142,6 @@ class TravelPlanningPage extends Component {
     hashHistory.pushState('/profile');
   }
 
-
-
   render() {
     return(
       <main>

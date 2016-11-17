@@ -37,7 +37,7 @@ class Profile extends Component {
                 <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                   View
                 </Link>
-                
+
                 <a href="#" onClick={(e) => {
                   e.preventDefault();
                   this._deleteTrip(tripId)
@@ -54,7 +54,7 @@ class Profile extends Component {
     render() {
       return(
           <main className="container">
-            <Header />
+            <Header firebase={this.props.firebase} />
             <div className="row">
               <div className="profile">
                 <div id="profileInfo">

@@ -29,7 +29,7 @@ class AlertModal extends Component {
               <p>{this.props.modalMessage}</p>
             </div>
             <div id="alertFooter">
-            <Link to="/Profile" className="largeButton" onClick={this._deleteTrip}>Delete</Link>
+              <Link to="/Profile" className="largeButton" onClick={this._deleteTrip}>Delete</Link>
             </div>
           </div>
         </div>

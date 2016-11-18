@@ -9,7 +9,8 @@
 }
 
 #alertHeader {
-  height: 50%;
+  height: 15%;
+  background-color: rgb(203,203,203);
   padding: 4%;
 }
 
@@ -20,29 +21,16 @@
 
 #alertContent {
   color: black;
-  font-size: 15px;
+  font-size: 30px;
   text-align: left;
-  background-color: rgba(203,203,203,0.8);
-  height: 35%;
+  background-color: white;
+  height: 60%;
   overflow: scroll;
-  padding: 5px;
+  padding: 30px;
   box-sizing: border-box;
 }
 
-#modalContent h4 {
-  font-size: 24px;
-}
-
-#modalFooter {
-  background-color: rgba(203,203,203,0.8);
-  height: 15%;
-  padding: 0 4% 4% 4%;
-  box-sizing: border-box;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-
-#modalFooter img#addButton {
-  float: right;
-  cursor: pointer;
+#alertFooter {
+  height: 25%;
+  padding-top: 30px;
 }

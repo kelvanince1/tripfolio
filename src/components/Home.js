@@ -21,7 +21,6 @@ class Home extends Component {
 
     } else {
       return <div>Welcome Back! <Link to="/profile" id="profile-button-search" className="btn btn-default">My profile</Link></div>
-      console.log('Check your code fuckface!');
     }
   }
 

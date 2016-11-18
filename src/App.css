@@ -273,9 +273,17 @@ h1{
   border-color: #FEA680;
   border-width: 3px;
   color: #000;
-  font-size: 16px;
+  font-size: 24px;
 }
 
+#nav-buttons:hover {
+  background-color: #FEA680;
+  color: black;
+}
+
+#nav-buttons a:hover {
+  color: black;
+}
 
 li a{
   padding: 5px;

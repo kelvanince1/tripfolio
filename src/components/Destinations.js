@@ -57,7 +57,6 @@ class Destinations extends Component {
       <main id="main">
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
-          {/* <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link> */}
         </div>
         <div id="logo-div">
           <img id="logo" src={logo} />

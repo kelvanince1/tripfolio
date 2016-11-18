@@ -6,6 +6,9 @@ import {Link} from 'react-router';
 // Components
 import SearchBar from './SearchBar';
 
+//Styles and images
+import logo from "../../public/images/logo-2.png";
+
 class Destinations extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +55,7 @@ class Destinations extends Component {
     return(
       <main id="main">
         <div id="logo-div">
-          <img id="logo" src="/images/logo 2.png" />
+          <img id="logo" src={logo} />
         </div>
         <Link to="/profile" id="profile-button-search" className="btn btn-default">My profile</Link>
         <div id="pic-div">

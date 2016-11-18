@@ -141,9 +141,18 @@ h1{
   float: right;
 }
 
+#searchTrip{
+  border-style: solid;
+  border-color: #000;
+}
+
 #newTripSubmit{
   border-style: solid;
   border-color: #000;
+}
+
+#go-button{
+  margin-left: 5px;
 }
 
 #newTripButton{

@@ -17,8 +17,8 @@ class SearchBar extends Component {
   render() {
     return(
       <form onSubmit={this._handleSubmit}>
-        <input type="text" ref="search" />
-        <input type="submit" value="Go!" />
+        <input id="searchTrip" type="text" ref="search" placeholder="Enter City Here"/>
+        <input id="go-button" type="submit" value="Go!" />
       </form>
     );
   }

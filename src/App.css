@@ -116,10 +116,6 @@ h1{
   background-color: #fff;
 }
 
-#edit-trip{
-  display: inline-block;
-}
-
 #profile-button-search{
   display: inline;
   text-align: center;
@@ -337,6 +333,12 @@ h1 {
 .suggestionTile {
   display: inline-block;
   cursor: pointer;
+  width: 200px;
+  height: 200px;
+}
+
+.suggestionTile img {
+  border-radius: 5px;
 }
 
 #header img {

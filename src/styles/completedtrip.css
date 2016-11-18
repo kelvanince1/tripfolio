@@ -1,0 +1,22 @@
+#completedTrip {
+  height: 500px;
+}
+
+#completedTrip .row {
+  height: 50%;
+  margin-bottom: 30px;
+}
+
+#completedTrip .col-sm-6 {
+  height: 100%;
+}
+
+.tileColumn {
+  height: 100%;
+  overflow: scroll;
+}
+
+.tileColumn h4 {
+  padding: 5px;
+  margin: 25px;
+}

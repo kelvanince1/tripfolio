@@ -1,10 +1,15 @@
+// Modules
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 
+// Components
 import UsersTile from './UsersTile';
 import Header from './Header';
 import AlertModal from './AlertModal';
+
+// Styles and images
+import '../styles/completedtrip.css';
 
 class CompletedTripPage extends Component {
   constructor(props) {
@@ -128,16 +133,18 @@ class CompletedTripPage extends Component {
             </div>
           </div>
           {this._checkUser()}
-            <div id="edit-trip" className="container">
+            <div id="completedTrip" className="container">
               <div className="row">
                 <div className="col-sm-6">
-                  <div id="restaurantTiles">
+                  <div id="restaurantTiles"
+                  className="tileColumn">
                     <h4>Eat</h4>
                     {this._renderTiles('restaurants')}
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <div id="hotelTiles">
+                  <div id="hotelTiles"
+                    className="tileColumn">
                     <h4>Sleep</h4>
                     {this._renderTiles('hotels')}
                   </div>
@@ -145,13 +152,15 @@ class CompletedTripPage extends Component {
               </div>
               <div className="row">
                 <div className="col-sm-6">
-                  <div id="attractionTiles">
+                  <div id="attractionTiles"
+                    className="tileColumn">
                     <h4>See</h4>
                     {this._renderTiles('tourist%20attractions')}
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <div id="barTiles">
+                  <div id="barTiles"
+                    className="tileColumn">
                     <h4>Drink</h4>
                     {this._renderTiles('bars')}
                   </div>

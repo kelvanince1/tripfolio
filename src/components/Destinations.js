@@ -70,7 +70,7 @@ class Destinations extends Component {
               return (
                 <li key={index}>
                   <Link to={`completed/${result.uid}/${result.tripId}/${result.destination}`}>
-                    {result.username}s trip to {result.destination}
+                    {result.username}'s trip to {result.destination}
                   </Link>
                 </li>
               );

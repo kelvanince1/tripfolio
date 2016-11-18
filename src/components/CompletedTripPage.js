@@ -73,7 +73,7 @@ class CompletedTripPage extends Component {
 
     return (
       <div className="pageHeader">
-        <h2>{username}s trip to {destination}</h2>
+        <h2>{username}'s trip to {destination}</h2>
         <nav>
           {/* options to "add to your saved trips" and "like" will be added later */}
         </nav>

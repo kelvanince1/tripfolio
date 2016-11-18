@@ -13,6 +13,13 @@ body {
 
 .breadcrumb{
   background-color: #fff;
+  border-width: 4px;
+  border-color: #FEA680;
+}
+
+#breadcrumb-nav{
+  border-width: 3px;
+  border-color: #FEA680;
 }
 
 #nav-pills{
@@ -77,6 +84,7 @@ h1{
 
 #edit-trip{
   display: inline-block;
+  margin-top: 40px;
 }
 
 #profile-button-search{
@@ -282,6 +290,9 @@ h1 {
   background-color: rgb(1, 171, 170);
   border-radius: 2px;
   color: #fff;
+  font-size: 18px;
+  border-width: 3px;
+  border-color: #FEA680;
 }
 
 /*---MODAL STYLES---*/

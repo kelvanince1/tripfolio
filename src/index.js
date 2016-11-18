@@ -5,7 +5,6 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import firebase from './utils/firebase';
 
 // Components
-import requireAuth from './utils/requireAuth';
 import App from './App';
 import Home from './components/Home';
 import Profile from './components/Profile';

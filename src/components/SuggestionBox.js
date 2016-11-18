@@ -22,7 +22,6 @@ class SuggestionBox extends Component {
   render() {
     return(
       <div className="container">
-        <Link to="/profile" id="profile-button" className="btn btn-default">See my profile</Link>
         <div className="row" id="suggestionContainer">
           <h3>Suggestions</h3>
           {_.map(this.props.results, (business, index) => {

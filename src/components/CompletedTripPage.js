@@ -118,7 +118,6 @@ class CompletedTripPage extends Component {
   render() {
     let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <div id="completed-background">
         <main id="main">
           <div id="completed-nav">
             <Header firebase={this.props.firebase} />
@@ -162,7 +161,6 @@ class CompletedTripPage extends Component {
             </div>
             <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" buttonClass=""/>
         </main>
-      </div>
     );
   }
 }

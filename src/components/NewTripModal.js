@@ -4,8 +4,10 @@ import { Link, hashHistory } from 'react-router';
 import _ from 'lodash';
 
 // Components
+import Header from './Header';
 
 // Styles and images
+import logo from "../../public/images/logo-2.png";
 
 class NewTripModal extends Component {
   constructor(props) {
@@ -39,8 +41,21 @@ class NewTripModal extends Component {
   }
 
   render() {
+    let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <main id="newTrips">
+      <main id="main">
+        <div id="completed-nav">
+          <Header firebase={this.props.firebase} />
+          <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
+        </div>
+        <div id="logo-div">
+          <img id="logo" src={logo} />
+        </div>
+        <div id="pic-div">
+          <div id="prof-pic">
+            <img src={image} alt="Profile Picture" id="profPic" />
+          </div>
+        </div>
         {/* <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link> */}
         <form onSubmit={this._handleSubmit}>
           <h2>Where Do You Want To Go?</h2>

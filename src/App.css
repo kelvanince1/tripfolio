@@ -31,6 +31,16 @@ body {
   border-color: #FEA680;
 }
 
+#save{
+  background-color: rgb(1, 171, 170);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 18px;
+  border-width: 3px;
+  border-color: #FEA680;
+  padding: 8px;
+}
+
 #nav-pills{
   width: 100%;
   padding-right: 30%;
@@ -373,6 +383,7 @@ h1 {
   width: 80%;
   height: 400px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
 .suggestionTile {

@@ -153,7 +153,7 @@ class TravelPlanningPage extends Component {
           <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
         </div>
         <div id="logo-div">
-          <img id="logo" src={logo} />
+          <Link to="/profile"><img id="logo" src={logo}/></Link>
         </div>
         <div id="pic-div">
           <div id="prof-pic">
@@ -185,7 +185,7 @@ class TravelPlanningPage extends Component {
         </ol>
       <br/>
         <div>
-          <h4>My Saved Tiles</h4>
+          <h3>My Saved Tiles</h3>
           <div id="myTilesContainer">
             <div>
             {_.map(this.state.tiles, (tile, index) => {
@@ -200,8 +200,8 @@ class TravelPlanningPage extends Component {
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
-
-        <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>Save</Link>
+      <br/>
+        <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`} id="save">Save</Link>
 
         <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing} category={this.state.term}/>
       </main>

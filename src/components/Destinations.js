@@ -60,7 +60,7 @@ class Destinations extends Component {
           <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
         </div>
         <div id="logo-div">
-          <img id="logo" src={logo} />
+          <Link to="/profile"><img id="logo" src={logo}/></Link>
         </div>
         <div id="prof-pic">
           <img src={image} alt="Profile Picture" id="profPic" />

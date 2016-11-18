@@ -162,23 +162,22 @@ class TravelPlanningPage extends Component {
         </div>
         <h2>My Trip To <span id="destinationName"> {this.state.destination}</span></h2>
         <ol className="breadcrumb">
-          <li><a id="breadcrumb-nav" href="#"
+          <li><a id="breadcrumb-nav-delete" href="#"
             onClick={this._axiosCall}
-            data-query="tourist%20attractions"
-            className="active">
+            data-query="tourist%20attractions">
               Attractions
           </a></li>
-          <li><a id="breadcrumb-nav"href="#"
+          <li><a id="breadcrumb-nav-delete"href="#"
             onClick={this._axiosCall}
             data-query="restaurants" className="active">
               Food
           </a></li>
-          <li id="breadcrumb-nav"><a href="#"
+          <li><a id="breadcrumb-nav-delete" href="#"
             onClick={this._axiosCall}
             data-query="hotels" className="active">
               Hotels
           </a></li>
-          <li id="breadcrumb-nav"><a href="#"
+          <li><a id="breadcrumb-nav-delete" href="#"
             onClick={this._axiosCall}
             data-query="bars" className="active">
               Bars

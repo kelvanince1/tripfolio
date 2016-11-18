@@ -271,7 +271,8 @@ h1{
 }
 
 #searchResults{
-  text-align: left;
+  text-align: center;
+  padding: 30px;
 }
 
 /*---PROFILE STYLES---*/

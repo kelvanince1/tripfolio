@@ -24,7 +24,6 @@ class Profile extends Component {
     render() {
       let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
       return(
-        <div id="prof-background">
           <main id="main">
             <Header firebase={this.props.firebase} />
             <div>
@@ -46,7 +45,7 @@ class Profile extends Component {
                       let destination = trip.destination;
                       return (
                         <li key={tripId} data-tripId={tripId}>
-                          My trip to {destination}
+                          My Trip To {destination}
                           <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
                             View
                           </Link>
@@ -58,7 +57,6 @@ class Profile extends Component {
               </div>
             </div>
           </main>
-        </div>
         );
     }
 }

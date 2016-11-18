@@ -8,8 +8,10 @@ import { Link, hashHistory } from 'react-router';
 import SuggestionBox from './SuggestionBox';
 import TravelTileModal from './TravelTileModal';
 import UsersTile from './UsersTile';
+import Header from './Header';
 
 // Styles and images
+import logo from "../../public/images/logo-2.png";
 
 class TravelPlanningPage extends Component {
   constructor(props) {
@@ -143,9 +145,22 @@ class TravelPlanningPage extends Component {
   }
 
   render() {
+    let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <main>
-        <h2>My trip to <span id="destinationName"> {this.state.destination}</span></h2>
+      <main id="main">
+        <div id="completed-nav">
+          <Header firebase={this.props.firebase} />
+          <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
+        </div>
+        <div id="logo-div">
+          <img id="logo" src={logo} />
+        </div>
+        <div id="pic-div">
+          <div id="prof-pic">
+            <img src={image} alt="Profile Picture" id="profPic" />
+          </div>
+        </div>
+        <h2>My Trip To <span id="destinationName"> {this.state.destination}</span></h2>
         <nav id="navYelpLinks">
           <a href="#"
             onClick={this._axiosCall}

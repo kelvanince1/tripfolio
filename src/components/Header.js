@@ -19,6 +19,10 @@ class Header extends Component {
           </li> */}
           <li role="presentation">
             <button id="nav-buttons" className="btn btn-default">
+            <Link to="/profile">My Profile</Link></button>
+          </li>
+          <li role="presentation">
+            <button id="nav-buttons" className="btn btn-default">
             <Link to="/destinations">Destinations</Link></button>
           </li>
           <li role="presentation">

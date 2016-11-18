@@ -21,6 +21,7 @@ class CompletedTripPage extends Component {
     this._renderTiles = this._renderTiles.bind(this);
     this._deleteTrip = this._deleteTrip.bind(this);
     this._showModal = this._showModal.bind(this);
+    this._closeModal = this._closeModal.bind(this);
   }
 
   _deleteTrip(tripId) {
@@ -32,12 +33,8 @@ class CompletedTripPage extends Component {
   _checkUser() {
     let currentUser = this.props.user.uid;
 
-    console.log('current user', currentUser);
-
     // The 'owner' of the trip (aka the uid of the person who created it) will need to be passed when the component is rendered
     let creator = this.props.params.uid;
-
-    console.log('creator', creator);
 
     if(currentUser === creator) { // Later will be if(currentUser === creator)
       return this._renderMyTrip();
@@ -48,7 +45,6 @@ class CompletedTripPage extends Component {
   }
 
   _renderMyTrip() {
-    console.log('rendering my trip');
     let owner = this.props.params.uid;
     let tripId = this.props.params.tripId;
     let destination = this.props.params.destination;
@@ -66,7 +62,6 @@ class CompletedTripPage extends Component {
   }
 
   _renderOtherUsersTrip() {
-    console.log('rendering someone elses trip');
     let username = this.state.username;
     let tripId = this.props.params.tripId;
     let destination = this.props.params.destination;
@@ -116,6 +111,10 @@ class CompletedTripPage extends Component {
     this.setState({alertModalClass:''});
   }
 
+  _closeModal() {
+    this.setState({alertModalClass: 'hidden'});
+  }
+
   render() {
     let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
@@ -161,7 +160,7 @@ class CompletedTripPage extends Component {
                 </div>
               </div>
             </div>
-            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forevor!" buttonClass=""/>
+            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" buttonClass=""/>
         </main>
       </div>
     );

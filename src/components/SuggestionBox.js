@@ -21,9 +21,11 @@ class SuggestionBox extends Component {
 
   render() {
     return(
-      <div className="container">
-        <div className="row" id="suggestionContainer">
+      <div>
+        <div className="tileHeader">
           <h3>Suggestions</h3>
+        </div>
+        <div id="suggestionContainer">
           {_.map(this.props.results, (business, index) => {
             let image = business["image_url"];
             let name = business.name;

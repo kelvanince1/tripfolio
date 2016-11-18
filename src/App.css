@@ -33,12 +33,12 @@ a:hover {
   background-color: #CBCBCB;
   border: 4px solid #FEA680;
   border-radius: 10px;
-  padding: 10px 20px;
-  float: left;
+  padding: 8px 16px;
 }
 
 .largeButton:hover {
   background-color: #FEA680;
+  color: black;
   text-decoration: none;
 }
 
@@ -323,26 +323,6 @@ a.active, a.active:active {
   text-decoration: none;
   /*border-radius: 2px;
   color: #fff;*/
-}
-
-/*---SUGGESTION BOX STYLES---*/
-
-#suggestionContainer {
-  overflow-x: scroll;
-  width: 80%;
-  height: 400px;
-  margin: 0 auto;
-}
-
-.suggestionTile {
-  display: inline-block;
-  cursor: pointer;
-  width: 200px;
-  height: 200px;
-}
-
-.suggestionTile img {
-  border-radius: 5px;
 }
 
 #header img {

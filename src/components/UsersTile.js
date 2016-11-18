@@ -22,7 +22,7 @@ class UsersTile extends Component {
   render() {
     return(
       <div className="suggestionTile" key={this.props.index} onClick={this._showModal}>
-        <span id="deleteTile"
+        <span
           className={this.props.spanClass}
           onClick={this._deleteTile}>
             x

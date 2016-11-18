@@ -105,7 +105,7 @@ class CompletedTripPage extends Component {
         let name = tile.tile.name;
         let url = tile.tile.url;
 
-        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='hidden' />
+        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass="hidden" />
       })
     );
   }

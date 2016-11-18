@@ -19,9 +19,9 @@ export default class LogoutButton extends Component{
 
   render(){
     return(
-      <div>
+      <li role="presentation">
         <a href="#" onClick={this._handleLogout}  className="largeButton">Logout</a>
-      </div>
+      </li>
     )
   }
 }

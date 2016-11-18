@@ -64,7 +64,7 @@ class Destinations extends Component {
         <div id="prof-pic">
           <img src={image} alt="Profile Picture" id="profPic" />
         </div>
-        <h2>Search Users Trips</h2>
+        <h2>Search Users' Trips</h2>
         <SearchBar _handleSubmit={this._handleSubmit} />
       <br/>
       <br/>

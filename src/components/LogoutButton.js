@@ -11,7 +11,7 @@ export default class LogoutButton extends Component{
     e.preventDefault()
     this.props.firebase.auth().signOut().then(function() {
       console.log('Signed Out');
-      hashHistory.push('/')
+      this.hashHistory.push('/')
     }, function(error) {
       console.error('Sign Out Error', error);
     });

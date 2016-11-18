@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import UsersTile from './UsersTile';
 import Header from './Header';
-import AlertModal from './AlertModal';
+import AlertModal from './alertModal';
 
 class CompletedTripPage extends Component {
   constructor(props) {

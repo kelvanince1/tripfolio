@@ -18,11 +18,11 @@ class Header extends Component {
           <button id="nav-buttons" className="btn btn-default"><newTrips /><Link to="newTrip">My Trips</Link></button>
           </li> */}
           <li role="presentation">
-            <button id="nav-buttons" className="btn btn-default">
+            <button  className="largeButton">
             <Link to="/profile">My Profile</Link></button>
           </li>
           <li role="presentation">
-            <button id="nav-buttons" className="btn btn-default">
+            <button  className="largeButton">
             <Link to="/destinations">Destinations</Link></button>
           </li>
           <li role="presentation">

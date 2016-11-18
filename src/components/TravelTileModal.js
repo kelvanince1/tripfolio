@@ -66,7 +66,8 @@ class TravelTileModal extends Component {
               <p>{snippet_text}</p>
             </div>
             <div id="modalFooter">
-              <a href={url} target="_blank">Visit Site</a>
+              <a href={url} target="_blank"
+              className="largeButton">Visit Site</a>
               <img src={addButton}
                 alt="Save this tile to your trip!"
                 id="addButton"

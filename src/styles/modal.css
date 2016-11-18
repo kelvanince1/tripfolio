@@ -61,19 +61,6 @@
   border-bottom-left-radius: 30px;
 }
 
-#modalFooter a {
-  color: black;
-  border: 4px solid #FEA680;
-  border-radius: 10px;
-  padding: 10px 20px;
-  float: left;
-}
-
-#modalFooter a:hover {
-  background-color: #FEA680;
-  text-decoration: none;
-}
-
 #modalFooter img#addButton {
   float: right;
   cursor: pointer;

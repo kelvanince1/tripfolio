@@ -20,7 +20,7 @@ export default class LogoutButton extends Component{
   render(){
     return(
       <div>
-        <a href="#" onClick={this._handleLogout} id="logout-button" className="btn btn-default">Logout</a>
+        <a href="#" onClick={this._handleLogout}  className="largeButton">Logout</a>
       </div>
     )
   }

@@ -66,6 +66,23 @@ class TravelPlanningPage extends Component {
       });
   }
 
+
+  _loadUsersTiles() {
+    let firebase = this.props.firebase;
+    let uid = this.props.params.uid;
+    let tripId = this.props.params.tripId;
+
+    firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
+      let tiles;
+
+      if(snapshot.val()) {
+        tiles = snapshot.val().places;
+      }
+
+      this.setState({ tiles });
+    });
+  }
+
   _showModal(index) {
     let selectedTile = this.state.results[index];
 
@@ -98,22 +115,6 @@ class TravelPlanningPage extends Component {
 
       // Set the clikced tab to "active"
       e.target.className = "active";
-  }
-
-  _loadUsersTiles() {
-    let firebase = this.props.firebase;
-    let uid = this.props.params.uid;
-    let tripId = this.props.params.tripId;
-
-    firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
-      let tiles;
-
-      if(snapshot.val()) {
-        tiles = snapshot.val().places;
-      }
-
-      this.setState({ tiles });
-    });
   }
 
   _removeYelpListing(index) {

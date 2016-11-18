@@ -52,11 +52,11 @@ class CompletedTripPage extends Component {
     return (
       <div id="newTrips" >
         <h2>My Trip To {this.props.params.destination}</h2>
-        <nav>
           {/* STRETCH: switch to make your trip public or private */}
-          <Link to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link>
-          <a href="#" onClick={this._showModal}>Delete</a>
-        </nav>
+        <ol className="breadcrumb">
+          <li><Link id="breadcrumb-nav" className="active" to={`/planner/${owner}/${tripId}/${destination}`}>Edit</Link></li>
+          <li><a id="breadcrumb-nav" className="active" href="#" onClick={this._showModal}>Delete</a></li>
+        </ol>
       </div>
     )
   }

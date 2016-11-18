@@ -11,9 +11,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.breadcrumb{
+  background-color: #fff;
+}
+
 #nav-pills{
   width: 100%;
-  padding-right: 31%;
+  padding-right: 30%;
 }
 
 #logo-pic{
@@ -275,7 +279,9 @@ h1 {
 
 /*---PLANNER STYLES---*/
 .active {
-  background-color: #000;
+  background-color: rgb(1, 171, 170);
+  border-radius: 2px;
+  color: #fff;
 }
 
 /*---MODAL STYLES---*/

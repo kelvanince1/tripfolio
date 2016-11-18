@@ -24,6 +24,7 @@ class SuggestionBox extends Component {
       <div className="container">
         <div className="row" id="suggestionContainer">
           <h3>Suggestions</h3>
+        <br/>
           {_.map(this.props.results, (business, index) => {
             let image = business["image_url"];
             let name = business.name;

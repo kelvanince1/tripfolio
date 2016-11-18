@@ -349,6 +349,10 @@ h1 {
   margin: 60px 40px;
 }
 
+#newTrips a{
+  margin: 0px 5px;
+}
+
 #completed-background{
   background-color: #fff;
   height: 100%;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 export default class LogoutButton extends Component{
   constructor(props){
@@ -8,10 +8,8 @@ export default class LogoutButton extends Component{
   }
 
   _handleLogout(e){
-    e.preventDefault()
     this.props.firebase.auth().signOut().then(function() {
 
-      this.hashHistory.push('/');
     }, function(error) {
       console.error('Sign Out Error', error);
     });

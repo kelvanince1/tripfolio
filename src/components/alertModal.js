@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import '../styles/alertmodal.css';
+
 class AlertModal extends Component {
   constructor(props) {
     super(props);
@@ -18,16 +20,16 @@ class AlertModal extends Component {
     return(
       <div>
         <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
-          <div id="modalContainer">
-            <div id="modalHeader">
+          <div id="alertContainer">
+            <div id="alertHeader">
               <span id="closeModal" onClick={this.props._closeModal}>x</span>
             </div>
-            <div id="modalContent">
+            <div id="alertContent">
               <h4>{this.props.modalTitle}</h4>
               <p>{this.props.modalMessage}</p>
             </div>
-            <div id="modalFooter">
-            <Link to="/Profile" className={this.props.buttonClass} onClick={this._deleteTrip}>Delete</Link>
+            <div id="alertFooter">
+            <Link to="/Profile" className="largeButton" onClick={this._deleteTrip}>Delete</Link>
             </div>
           </div>
         </div>

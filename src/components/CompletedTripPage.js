@@ -167,7 +167,7 @@ class CompletedTripPage extends Component {
                 </div>
               </div>
             </div>
-            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" buttonClass=""/>
+            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" />
         </main>
     );
   }

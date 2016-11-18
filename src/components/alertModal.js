@@ -18,11 +18,11 @@ class AlertModal extends Component {
     return(
       <div>
         <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
-          <div id="modalContainer">
-            <div id="modalHeader">
+          <div id="modalContainerDelete">
+            <div id="modalHeaderDelete">
               <span id="closeModal" onClick={this.props._closeModal}>x</span>
             </div>
-            <div id="modalContent">
+            <div id="modalContentDelete">
               <h4>{this.props.modalTitle}</h4>
               <p>{this.props.modalMessage}</p>
             </div>

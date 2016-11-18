@@ -20,9 +20,11 @@
 
 a {
   color: black;
+  font-size: 24px;
 }
 
 a:hover {
+  color: #FEDC3D;
   text-decoration: none;
 }
 
@@ -315,10 +317,12 @@ h1 {
 
 
 /*---PLANNER STYLES---*/
-.active {
-  background-color: rgb(1, 171, 170);
-  border-radius: 2px;
-  color: #fff;
+a.active, a.active:active {
+  font-weight: bold;
+  color: rgb(1, 171, 170);
+  text-decoration: none;
+  /*border-radius: 2px;
+  color: #fff;*/
 }
 
 /*---SUGGESTION BOX STYLES---*/

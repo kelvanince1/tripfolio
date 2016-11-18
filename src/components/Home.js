@@ -20,7 +20,7 @@ class Home extends Component {
       hashHistory.push('/profile')
 
     } else {
-      return <div>I have a user</div>
+      return <div>Welcome Back! <Link to="/profile" id="profile-button-search" className="btn btn-default">My profile</Link></div>
       console.log('Check your code fuckface!');
     }
   }

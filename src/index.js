@@ -13,8 +13,6 @@ import NewTripModal from './components/NewTripModal';
 import CompletedTripPage from './components/CompletedTripPage';
 import Destinations from './components/Destinations';
 
-import './index.css';
-
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path='/' component={App} firebase={firebase}>

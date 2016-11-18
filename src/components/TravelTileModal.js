@@ -1,4 +1,10 @@
+// Modules
 import React, { Component } from 'react';
+
+// Styles and images
+import '../styles/modal.css';
+import addButton from '../../public/assets/add.png';
+import exitButton from '../../public/assets/exit.png';
 
 class TravelTileModal extends Component {
   constructor(props) {
@@ -49,17 +55,22 @@ class TravelTileModal extends Component {
       <div>
         <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
           <div id="modalContainer">
-            <div id="modalHeader">
-              <span id="closeModal" onClick={this.props._closeModal}>x</span>
+            <img src={image} alt="Tile background image"
+              id="modalImage"/>
+            <div id="modalHeader" className="clearfix">
+              <img src={exitButton} alt="Close tile" id="closeModal"
+                onClick={this.props._closeModal} />
             </div>
             <div id="modalContent">
               <h4>{name}</h4>
-              <img src={image} />
               <p>{snippet_text}</p>
-              <a href={url} target="_blank">Visit Site</a>
             </div>
             <div id="modalFooter">
-              <button onClick={this._addTile}>Add</button>
+              <a href={url} target="_blank">Visit Site</a>
+              <img src={addButton}
+                alt="Save this tile to your trip!"
+                id="addButton"
+                onClick={this._addTile}/>
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ a:hover {
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  background-color: #000;
+  background-color: white;
   color: #000;
   background-image: url("../public/images/pretty2.jpg");
   background-size: cover;

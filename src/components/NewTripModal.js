@@ -43,7 +43,7 @@ class NewTripModal extends Component {
   render() {
     let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
     return(
-      <main id="main">
+      <div>
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
         </div>
@@ -62,7 +62,7 @@ class NewTripModal extends Component {
           <input type="text" ref="destination" id="newTripSubmit" placeholder="Enter City Here"/>
           <input id="newTripButton" className="btn btn-default" type="submit" value="Get Started!"/>
         </form>
-      </main>
+      </div>
     );
   }
 }

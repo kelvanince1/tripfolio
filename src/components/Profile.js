@@ -6,7 +6,9 @@ import _ from 'lodash';
 // Components
 import NewTripModal from './NewTripModal';
 import Header from './Header';
+
 // Styles and images
+import "../styles/profile.css";
 
 class Profile extends Component {
     constructor(props) {
@@ -24,39 +26,37 @@ class Profile extends Component {
     render() {
       let image = this.props.user.providerData ? this.props.user.providerData[0].photoURL : 'http://placehold.it/100x100'
       return(
-          <main id="main">
+        <div>
             <Header firebase={this.props.firebase} />
-            <div>
-              <div id="pic-div">
-                <div id="prof-pic">
-                  <img src={image} alt="Profile Picture" id="profPic" />
-                </div>
-              </div>
-              <div>
-                <NewTripModal firebase={this.props.firebase} user={this.props.user}/>
-              </div>
-              <div className="trips">
-                <div id="myTrips">
-                  <div id="myTripsHeader">
-                    <h2>My Trips</h2>
-                  </div>
-                  <ul>
-                    {_.map(this.props.trips, (trip, tripId) => {
-                      let destination = trip.destination;
-                      return (
-                        <li key={tripId} data-tripId={tripId}>
-                          My Trip To {destination}
-                          <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
-                            View
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
+            <div id="pic-div">
+              <div id="prof-pic">
+                <img src={image} alt="Profile Picture" id="profPic" />
               </div>
             </div>
+            <main id="main">
+              <div id="newTripContainer">
+                <NewTripModal firebase={this.props.firebase} user={this.props.user}/>
+              </div>
+              <div id="profileColumnHeader">
+                <h2>My Trips</h2>
+              </div>
+              <div id="myTripList">
+                <ul>
+                  {_.map(this.props.trips, (trip, tripId) => {
+                    let destination = trip.destination;
+                    return (
+                      <li key={tripId} data-tripId={tripId}>
+                        My Trip To {destination}
+                        <Link to={`/completed/${this.props.user.uid}/${tripId}/${trip.destination}`}>
+                          View
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
           </main>
+        </div>
         );
     }
 }

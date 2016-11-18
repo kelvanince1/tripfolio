@@ -78,7 +78,6 @@ class TravelPlanningPage extends Component {
 
   _showSavedModal(index) {
     let selectedTile = this.state.tiles[index].tile;
-    console.log(selectedTile);
 
     this.setState({
       modalClass: '',

@@ -1,0 +1,19 @@
+#newTripContainer {
+  margin-bottom: 100px;
+}
+
+#profileColumnHeader, #myTripList {
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+#profileColumnHeader {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+#myTripList {
+  padding: 30px 0;
+}

@@ -10,7 +10,7 @@ export default class LogoutButton extends Component{
   _handleLogout(e){
     e.preventDefault()
     this.props.firebase.auth().signOut().then(function() {
-      console.log('Signed Out');
+
       hashHistory.push('/')
     }, function(error) {
       console.error('Sign Out Error', error);
@@ -19,9 +19,9 @@ export default class LogoutButton extends Component{
 
   render(){
     return(
-      <li role="presentation">
-        <a href="#" onClick={this._handleLogout}  className="largeButton">Logout</a>
-      </li>
+      <div>
+        <a href="#" onClick={this._handleLogout} id="logout-button" className="btn btn-default">Logout</a>
+      </div>
     )
   }
 }

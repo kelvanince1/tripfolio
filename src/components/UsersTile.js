@@ -28,7 +28,7 @@ class UsersTile extends Component {
             x
         </span>
         <div>
-          <img src={this.props.image} />
+          <img src={this.props.image} alt="This will be filled by Yelp API" />
           <h6>{this.props.name}</h6>
           <p>{this.props.term}</p>
         </div>

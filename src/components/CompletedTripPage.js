@@ -68,7 +68,6 @@ class CompletedTripPage extends Component {
 
   _renderOtherUsersTrip() {
     let username = this.state.username;
-    let tripId = this.props.params.tripId;
     let destination = this.props.params.destination;
 
     return (
@@ -85,7 +84,6 @@ class CompletedTripPage extends Component {
     let firebase = this.props.firebase;
     let owner = this.props.params.uid;
     let tripId = this.props.params.tripId;
-    let destination = this.props.params.destination;
 
     firebase.database().ref(`/tripbook/${owner}/${tripId}`).once('value').then(snapshot => {
       let tiles = snapshot.val().places;
@@ -103,7 +101,7 @@ class CompletedTripPage extends Component {
     return (_.map(tileList, (tile, index) => {
         let image = tile.tile["image_url"];
         let name = tile.tile.name;
-        let url = tile.tile.url;
+        // let url = tile.tile.url;
 
         return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass="hidden" />
       })
@@ -129,7 +127,7 @@ class CompletedTripPage extends Component {
           </div>
           <div id="pic-div">
             <div id="prof-pic">
-              <img src={image} alt="Profile Picture" id="profPic" />
+              <img src={image} alt="Your profile avatar" id="profPic" />
             </div>
           </div>
           {this._checkUser()}

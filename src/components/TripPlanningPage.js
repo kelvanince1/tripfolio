@@ -11,7 +11,6 @@ import UsersTile from './UsersTile';
 import Header from './Header';
 
 // Styles and images
-import logo from "../../public/images/logo-2.png";
 import "../styles/tripbuilder.css";
 
 class TravelPlanningPage extends Component {
@@ -118,8 +117,6 @@ class TravelPlanningPage extends Component {
   }
 
   _removeYelpListing(index) {
-    let yelpListing = this.state.results[index];
-
     let newList = _.remove(this.state.results, (result) => {
       return this.state.results.indexOf(result) !== index;
     });
@@ -152,12 +149,9 @@ class TravelPlanningPage extends Component {
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
         </div>
-        <div id="logo-div">
-          <Link to="/profile"><img id="logo" src={logo}/></Link>
-        </div>
         <div id="pic-div">
           <div id="prof-pic">
-            <img src={image} alt="Profile Picture" id="profPic" />
+            <img src={image} alt="Your profile avatar" id="profPic" />
           </div>
         </div>
         <h2>Trip Builder: <span id="destinationName"> {this.state.destination}</span></h2>
@@ -197,7 +191,7 @@ class TravelPlanningPage extends Component {
               let image = tile.tile["image_url"];
               let name = tile.tile.name;
               let snippet_text = tile.tile.snippet_text;
-              let url = tile.tile.url;
+              // let url = tile.tile.url;
 
               return <UsersTile index={index} key={index} image={image} name={name} snippet_text={snippet_text} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='' />
             })}

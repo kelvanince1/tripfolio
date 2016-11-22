@@ -1,6 +1,5 @@
 // Modules
 import React, {Component} from 'react';
-import { Link } from 'react-router';
 import _ from 'lodash';
 
 // Components
@@ -29,7 +28,7 @@ class SuggestionBox extends Component {
           {_.map(this.props.results, (business, index) => {
             let image = business["image_url"];
             let name = business.name;
-            let url = business.url;
+            // let url = business.url;
 
             return <SuggestionTile key={index} index={index} image={image} name={name} _showModal={this._showModal} />
           })}

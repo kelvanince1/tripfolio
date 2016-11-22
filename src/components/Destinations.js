@@ -28,7 +28,6 @@ class Destinations extends Component {
       let list = snapshot.val();
       var array = [];
       var arrayOfObjs = [];
-      let userList;
 
       _.map(list, (tripsByUser, uid) => {
         array.push(tripsByUser);
@@ -59,10 +58,10 @@ class Destinations extends Component {
           <Header firebase={this.props.firebase} />
         </div>
         <div id="logo-div">
-          <Link to="/profile"><img id="logo" src={logo}/></Link>
+          <Link to="/profile"><img id="logo" src={logo} alt="Website logo showing yellow folder with Tripfolio in blue font"/></Link>
         </div>
         <div id="prof-pic">
-          <img src={image} alt="Profile Picture" id="profPic" />
+          <img src={image} alt="Your profile avatar" id="profPic" />
         </div>
         <h2>Search Users' Trips</h2>
         <SearchBar _handleSubmit={this._handleSubmit} />

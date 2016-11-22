@@ -13,7 +13,7 @@ class SuggestionTile extends Component {
 
   render() {
     return(
-      <div className="suggestionTile" key={this.props.index} onClick={this._showModal}><img src={this.props.image} /><h6>{this.props.name}</h6></div>
+      <div className="suggestionTile" key={this.props.index} onClick={this._showModal}><img src={this.props.image} alt="This will be filled by Yelp API" /><h6>{this.props.name}</h6></div>
     );
   }
 }

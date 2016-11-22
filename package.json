@@ -2,7 +2,7 @@
   "name": "travel-planner",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://clrksanford.github.io/travel-planner",
+  "homepage": "http://clrksanford.github.io/tripfolio",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },

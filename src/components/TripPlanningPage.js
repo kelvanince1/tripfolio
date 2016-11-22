@@ -12,6 +12,7 @@ import Header from './Header';
 
 // Styles and images
 import logo from "../../public/images/logo-2.png";
+import "../styles/tripbuilder.css";
 
 class TravelPlanningPage extends Component {
   constructor(props) {
@@ -65,6 +66,23 @@ class TravelPlanningPage extends Component {
       });
   }
 
+
+  _loadUsersTiles() {
+    let firebase = this.props.firebase;
+    let uid = this.props.params.uid;
+    let tripId = this.props.params.tripId;
+
+    firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
+      let tiles;
+
+      if(snapshot.val()) {
+        tiles = snapshot.val().places;
+      }
+
+      this.setState({ tiles });
+    });
+  }
+
   _showModal(index) {
     let selectedTile = this.state.results[index];
 
@@ -77,7 +95,6 @@ class TravelPlanningPage extends Component {
 
   _showSavedModal(index) {
     let selectedTile = this.state.tiles[index].tile;
-    console.log(selectedTile);
 
     this.setState({
       modalClass: '',
@@ -98,22 +115,6 @@ class TravelPlanningPage extends Component {
 
       // Set the clikced tab to "active"
       e.target.className = "active";
-  }
-
-  _loadUsersTiles() {
-    let firebase = this.props.firebase;
-    let uid = this.props.params.uid;
-    let tripId = this.props.params.tripId;
-
-    firebase.database().ref(`/tripbook/${uid}/${tripId}`).on('value', (snapshot) => {
-      let tiles;
-
-      if(snapshot.val()) {
-        tiles = snapshot.val().places;
-      }
-
-      this.setState({ tiles });
-    });
   }
 
   _removeYelpListing(index) {
@@ -150,7 +151,6 @@ class TravelPlanningPage extends Component {
       <main id="main">
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
-          <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
         </div>
         <div id="logo-div">
           <Link to="/profile"><img id="logo" src={logo}/></Link>
@@ -160,34 +160,39 @@ class TravelPlanningPage extends Component {
             <img src={image} alt="Profile Picture" id="profPic" />
           </div>
         </div>
-        <h2>My Trip To <span id="destinationName"> {this.state.destination}</span></h2>
-        <ol className="breadcrumb">
-          <li><a id="breadcrumb-nav-delete" href="#"
-            onClick={this._axiosCall}
-            data-query="tourist%20attractions">
-              Attractions
-          </a></li>
-          <li><a id="breadcrumb-nav-delete"href="#"
-            onClick={this._axiosCall}
-            data-query="restaurants" className="active">
-              Food
-          </a></li>
-          <li><a id="breadcrumb-nav-delete" href="#"
-            onClick={this._axiosCall}
-            data-query="hotels" className="active">
-              Hotels
-          </a></li>
-          <li><a id="breadcrumb-nav-delete" href="#"
-            onClick={this._axiosCall}
-            data-query="bars" className="active">
-              Bars
-          </a></li>
-        </ol>
-      <br/>
+        <h2>Trip Builder: <span id="destinationName"> {this.state.destination}</span></h2>
+        <nav id="tripBuilderNav">
+          <ol className="breadcrumb">
+            <li><a href="#"
+              onClick={this._axiosCall}
+              data-query="tourist%20attractions"
+              className="active">
+                Attractions
+            </a></li>
+            <li><a href="#"
+              onClick={this._axiosCall}
+              data-query="restaurants">
+                Food
+            </a></li>
+            <li><a href="#"
+              onClick={this._axiosCall}
+              data-query="hotels">
+                Hotels
+            </a></li>
+            <li><a href="#"
+              onClick={this._axiosCall}
+              data-query="bars">
+                Bars
+            </a></li>
+          </ol>
+          <Link className="largeButton"
+            to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`}>View Trip</Link>
+        </nav>
         <div>
-          <h3>My Saved Tiles</h3>
+          <div className="tileHeader">
+            <h3>My Saved Tiles</h3>
+          </div>
           <div id="myTilesContainer">
-            <div>
             {_.map(this.state.tiles, (tile, index) => {
               let image = tile.tile["image_url"];
               let name = tile.tile.name;
@@ -196,12 +201,9 @@ class TravelPlanningPage extends Component {
 
               return <UsersTile index={index} key={index} image={image} name={name} snippet_text={snippet_text} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='' />
             })}
-            </div>
           </div>
         </div>
         <SuggestionBox results={this.state.results} _showModal={this._showModal} />
-      <br/>
-        <Link to={`/completed/${this.props.user.uid}/${this.props.params.tripId}/${this.props.params.destination}`} id="save">Save</Link>
 
         <TravelTileModal className={this.state.modalClass} _closeModal={this._closeModal} selectedTile={this.state.selectedTile} selectedTileIndex={this.state.selectedTileIndex} firebase={this.props.firebase} _handleClick={this.props._handleClick} user={this.props.user} destination={this.state.destination} tripId={this.props.params.tripId} _removeYelpListing={this._removeYelpListing} category={this.state.term}/>
       </main>

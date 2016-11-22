@@ -1,0 +1,36 @@
+#alertContainer {
+  position: relative;
+  margin: 15% auto;
+  background-color: white;
+  width: 30%;
+  height: 400px;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+#alertHeader {
+  height: 15%;
+  background-color: rgb(203,203,203);
+  padding: 4%;
+}
+
+#closeModal {
+  cursor: pointer;
+  float: right;
+}
+
+#alertContent {
+  color: black;
+  font-size: 30px;
+  text-align: left;
+  background-color: white;
+  height: 60%;
+  overflow: scroll;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+#alertFooter {
+  height: 25%;
+  padding-top: 30px;
+}

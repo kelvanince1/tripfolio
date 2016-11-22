@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 export default class LogoutButton extends Component{
   constructor(props){
@@ -7,20 +7,14 @@ export default class LogoutButton extends Component{
     this._handleLogout = this._handleLogout.bind(this)
   }
 
-  _handleLogout(e){
-    e.preventDefault()
-    this.props.firebase.auth().signOut().then(function() {
-      console.log('Signed Out');
-      this.hashHistory.push('/')
-    }, function(error) {
-      console.error('Sign Out Error', error);
-    });
+  _handleLogout(){
+    this.props.firebase.auth().signOut();
   }
 
   render(){
     return(
       <div>
-        <a href="#" onClick={this._handleLogout} id="logout-button" className="btn btn-default">Logout</a>
+        <a href="#" onClick={this._handleLogout} id="nav-buttons" className="btn btn-default">Logout</a>
       </div>
     )
   }

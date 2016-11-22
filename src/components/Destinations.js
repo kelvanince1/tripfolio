@@ -57,7 +57,6 @@ class Destinations extends Component {
       <main id="main">
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
-          <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
         </div>
         <div id="logo-div">
           <Link to="/profile"><img id="logo" src={logo}/></Link>
@@ -65,7 +64,7 @@ class Destinations extends Component {
         <div id="prof-pic">
           <img src={image} alt="Profile Picture" id="profPic" />
         </div>
-        <h2>Search Users Trips</h2>
+        <h2>Search Users' Trips</h2>
         <SearchBar _handleSubmit={this._handleSubmit} />
       <br/>
       <br/>

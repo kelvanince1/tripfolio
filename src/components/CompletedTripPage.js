@@ -1,10 +1,15 @@
+// Modules
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
 
+// Components
 import UsersTile from './UsersTile';
 import Header from './Header';
 import AlertModal from './alertModal';
+
+// Styles and images
+import '../styles/completedtrip.css';
 
 class CompletedTripPage extends Component {
   constructor(props) {
@@ -100,7 +105,7 @@ class CompletedTripPage extends Component {
         let name = tile.tile.name;
         let url = tile.tile.url;
 
-        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass='hidden' />
+        return <UsersTile index={index} key={index} image={image} name={name} _deleteTile={this._deleteTile} _showModal={this._showSavedModal} spanClass="hidden" />
       })
     );
   }
@@ -121,7 +126,6 @@ class CompletedTripPage extends Component {
         <main id="main">
           <div id="completed-nav">
             <Header firebase={this.props.firebase} />
-            <Link to="/profile" id="profile-button-completed" className="btn btn-default">My profile</Link>
           </div>
           <div id="pic-div">
             <div id="prof-pic">
@@ -129,16 +133,18 @@ class CompletedTripPage extends Component {
             </div>
           </div>
           {this._checkUser()}
-            <div id="edit-trip" className="container">
+            <div id="completedTrip" className="container">
               <div className="row">
                 <div className="col-sm-6">
-                  <div id="restaurantTiles">
+                  <div id="restaurantTiles"
+                  className="tileColumn">
                     <h4>Eat</h4>
                     {this._renderTiles('restaurants')}
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <div id="hotelTiles">
+                  <div id="hotelTiles"
+                    className="tileColumn">
                     <h4>Sleep</h4>
                     {this._renderTiles('hotels')}
                   </div>
@@ -146,20 +152,22 @@ class CompletedTripPage extends Component {
               </div>
               <div className="row">
                 <div className="col-sm-6">
-                  <div id="attractionTiles">
+                  <div id="attractionTiles"
+                    className="tileColumn">
                     <h4>See</h4>
                     {this._renderTiles('tourist%20attractions')}
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <div id="barTiles">
+                  <div id="barTiles"
+                    className="tileColumn">
                     <h4>Drink</h4>
                     {this._renderTiles('bars')}
                   </div>
                 </div>
               </div>
             </div>
-            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" buttonClass=""/>
+            <AlertModal className={this.state.alertModalClass} tripId={this.props.params.tripId} uid={this.props.params.uid} firebase={this.props.firebase} _closeModal={this._closeModal} newTripTitle="Delete Post" modalMessage="You are about to delete this trip forever!" />
         </main>
     );
   }

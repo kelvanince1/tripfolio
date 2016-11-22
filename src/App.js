@@ -30,7 +30,7 @@ class App extends Component {
       if (user) {
         // Save user's info to state
         this.setState({ user })
-        console.log({user});
+
         // Load logged in users trips to display on profile page
         this._loadUsersTrips(user);
 
@@ -70,8 +70,6 @@ class App extends Component {
           image: 'http://fakeurl.com'
         }
       ]
-    }).then(() => {
-      console.log('success');
     })
   }
 

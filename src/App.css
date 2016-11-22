@@ -1,10 +1,54 @@
+/*---REUSABLE CLASSES---*/
+
 .hidden {
   display: none;
 }
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+a {
+  color: black;
+  font-size: 24px;
+}
+
+a:hover {
+  color: #FEDC3D;
+  text-decoration: none;
+}
+
+.largeButton {
+  color: black;
+  font-size: 24px;
+  background-color: #CBCBCB;
+  border: 4px solid #FEA680;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+
+.largeButton:hover {
+  background-color: #FEA680;
+  color: black;
+  text-decoration: none;
+}
+
+/*---BEGIN CUSTOM STYLES---*/
+
 body {
+  font-family: 'Raleway', sans-serif;
   text-align: center;
-  background-color: #000;
+  background-color: white;
   color: #000;
   background-image: url("../public/images/pretty2.jpg");
   background-size: cover;
@@ -101,11 +145,6 @@ h1{
   background-color: #fff;
 }
 
-#edit-trip{
-  display: inline-block;
-  margin-top: 40px;
-}
-
 #profile-button-search{
   display: inline;
   text-align: center;
@@ -180,6 +219,13 @@ h1{
 #newTripSubmit{
   border-style: solid;
   border-color: #000;
+  border-radius: 5px;
+  padding: 14px 5px;
+  width: 15%;
+}
+
+#newTripSubmit:focus {
+  outline-color: #FEA680;
 }
 
 #go-button{
@@ -251,7 +297,8 @@ h1{
 }
 
 #searchResults{
-  text-align: left;
+  text-align: center;
+  padding: 30px;
 }
 
 /*---PROFILE STYLES---*/
@@ -261,9 +308,17 @@ h1{
   border-color: #FEA680;
   border-width: 3px;
   color: #000;
-  font-size: 16px;
+  font-size: 24px;
 }
 
+#nav-buttons:hover {
+  background-color: #FEA680;
+  color: black;
+}
+
+#nav-buttons a:hover {
+  color: black;
+}
 
 li a{
   padding: 5px;
@@ -305,13 +360,10 @@ h1 {
 
 
 /*---PLANNER STYLES---*/
-.active {
-  background-color: rgb(1, 171, 170);
-  border-radius: 2px;
-  color: #fff;
-  font-size: 18px;
-  border-width: 3px;
-  border-color: #FEA680;
+a.active, a.active:active {
+  font-weight: bold;
+  color: rgb(1, 171, 170);
+  text-decoration: none;
 }
 
 /*---MODAL STYLES---*/

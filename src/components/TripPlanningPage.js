@@ -153,7 +153,7 @@ class TravelPlanningPage extends Component {
           <Header firebase={this.props.firebase} />
         </div>
         <div id="logo-div">
-          <img id="logo" src={logo} />
+          <Link to="/profile"><img id="logo" src={logo}/></Link>
         </div>
         <div id="pic-div">
           <div id="prof-pic">

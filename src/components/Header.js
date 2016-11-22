@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 // Components
 import LogoutButton from './LogoutButton'
-
+import firebase from 'firebase';
 // Styles and images
 import logo from "../../public/images/logo-2.png";
 

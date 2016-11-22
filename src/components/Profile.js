@@ -30,7 +30,7 @@ class Profile extends Component {
             <Header firebase={this.props.firebase} />
             <div id="pic-div">
               <div id="prof-pic">
-                <img src={image} alt="Profile Picture" id="profPic" />
+                <img src={image} alt="Your profile avatar" id="profPic" />
               </div>
             </div>
             <main id="main">

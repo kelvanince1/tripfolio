@@ -1,13 +1,12 @@
 // Modules
 import React, { Component } from 'react';
-import { Link, hashHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import _ from 'lodash';
 
 // Components
 import Header from './Header';
 
 // Styles and images
-import logo from "../../public/images/logo-2.png";
 
 class NewTripModal extends Component {
   constructor(props) {
@@ -47,12 +46,9 @@ class NewTripModal extends Component {
         <div id="completed-nav">
           <Header firebase={this.props.firebase} />
         </div>
-        <div id="logo-div">
-          <img id="logo" src={logo} />
-        </div>
         <div id="pic-div">
           <div id="prof-pic">
-            <img src={image} alt="Profile Picture" id="profPic" />
+            <img src={image} alt="Your profile avatar" id="profPic" />
           </div>
         </div>
         {/* <Link to="/profile" id="profile-button" className="btn btn-default">My profile</Link> */}

@@ -18,7 +18,6 @@ class TravelTileModal extends Component {
     let firebase = this.props.firebase;
     let uid = this.props.user.uid;
     let tripId = this.props.tripId;
-    let destination = this.props.destination;
     let tile = this.props.selectedTile;
     let category = this.props.category;
 
@@ -55,7 +54,7 @@ class TravelTileModal extends Component {
       <div>
         <div id="modalBackground" className={this.props.className} onClick={this.props._closeModal}>
           <div id="modalContainer">
-            <img src={image} alt="Tile background image"
+            <img src={image} alt="Tile background of the place you selected"
               id="modalImage"/>
             <div id="modalHeader" className="clearfix">
               <img src={exitButton} alt="Close tile" id="closeModal"

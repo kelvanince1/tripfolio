@@ -2,8 +2,9 @@
   "name": "travel-planner",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://clrksanford.github.io/tripfolio",
+  "homepage": "http://kelvanince1.github.io/tripfolio",
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {

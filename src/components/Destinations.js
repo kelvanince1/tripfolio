@@ -63,7 +63,7 @@ class Destinations extends Component {
         <div id="prof-pic">
           <img src={image} alt="Your profile avatar" id="profPic" />
         </div>
-        <h2>Search Users' Trips</h2>
+        <h2>Search Users Trips</h2>
         <SearchBar _handleSubmit={this._handleSubmit} />
       <br/>
       <br/>
@@ -73,7 +73,7 @@ class Destinations extends Component {
               return (
                 <li key={index}>
                   <Link to={`completed/${result.uid}/${result.tripId}/${result.destination}`}>
-                    {result.username}'s trip to {result.destination}
+                    {result.username}s trip to {result.destination}
                   </Link>
                 </li>
               );

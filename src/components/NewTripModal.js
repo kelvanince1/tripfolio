@@ -22,7 +22,7 @@ class NewTripModal extends Component {
     let destination = _.startCase(this.refs.destination.value);
 
     let uid = this.props.user.uid;
-    let username = this.props.user.providerData[0].displayName;
+    let username = this.props.user.providerData.displayName;
 
     var newPostKey = this.props.firebase.database().ref().child(uid).push().key;
     this.props.firebase.database().ref(`/tripbook/${uid}/${newPostKey}`).update({
